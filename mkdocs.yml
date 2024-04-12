@@ -1,0 +1,46 @@
+site_name: EOEPCA System Architecture
+# site_url: https://deployment-guide.docs.eoepca.org
+# repo_url: https://github.com/EOEPCA/deployment-guide
+# edit_uri: ""
+
+nav:
+  - introduction.md
+  - Reference Architecture:
+    - reference-architecture/high-level-architecture.md
+    - Processing Building Blocks:
+      - Concepts: reference-architecture/processing/processing-concepts.md
+      - Approach: reference-architecture/processing/processing-BB-approach.md
+      - reference-architecture/processing/oapip-BB.md
+      - reference-architecture/processing/openeo-BB.md
+      - reference-architecture/processing/federated-orchestrator-BB.md
+    - Resource Management Building Blocks:
+      - Concepts: reference-architecture/resource-management/resource-management-concepts.md
+      - reference-architecture/resource-management/workspace-BB.md
+    - reference-architecture/reproducible-science.md
+
+theme:
+  # name: mkdocs
+  # name: readthedocs
+  name: material # https://squidfunk.github.io/mkdocs-material/creating-your-site/
+  # navigation_depth: 4
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: ⚓︎
+      toc_depth: 4
+  - smarty
+  - sane_lists
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - abbr
+  - attr_list
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
