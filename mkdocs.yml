@@ -20,6 +20,8 @@ nav:
     - reference-architecture/resource-management/datacube-access-BB.md
     - reference-architecture/resource-management/resource-registration-BB.md
   - Reprodicible Science: reference-architecture/reproducible-science.md
+  - Utilisation Domains:
+    - Overview: utilisation-domains/utilisation-domains.md
   - Document References: document-references.md
 
 theme:
