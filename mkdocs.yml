@@ -16,6 +16,9 @@ nav:
     - Concepts: reference-architecture/resource-management/resource-management-concepts.md
     - reference-architecture/resource-management/workspace-BB.md
     - reference-architecture/resource-management/resource-discovery-BB.md
+    - reference-architecture/resource-management/data-access-BB.md
+    - reference-architecture/resource-management/datacube-access-BB.md
+    - reference-architecture/resource-management/resource-registration-BB.md
   - Reprodicible Science: reference-architecture/reproducible-science.md
   - Document References: document-references.md
 
