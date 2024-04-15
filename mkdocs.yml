@@ -4,7 +4,7 @@ site_name: EOEPCA System Architecture
 # edit_uri: ""
 
 nav:
-  - introduction.md
+  - index.md
   - Reference Architecture:
     - reference-architecture/high-level-architecture.md
     - Processing Building Blocks:
