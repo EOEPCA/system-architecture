@@ -4,32 +4,54 @@ site_name: EOEPCA System Architecture
 # edit_uri: ""
 
 nav:
-  - Introduction: index.md
-  - High-level Architecture: reference-architecture/high-level-architecture.md
-  - Processing Building Blocks:
-    - Concepts: reference-architecture/processing/processing-concepts.md
-    - Approach: reference-architecture/processing/processing-BB-approach.md
-    - reference-architecture/processing/oapip-BB.md
-    - reference-architecture/processing/openeo-BB.md
-    - reference-architecture/processing/federated-orchestrator-BB.md
-  - Resource Management Building Blocks:
-    - Concepts: reference-architecture/resource-management/resource-management-concepts.md
-    - reference-architecture/resource-management/workspace-BB.md
-    - reference-architecture/resource-management/resource-discovery-BB.md
-    - reference-architecture/resource-management/data-access-BB.md
-    - reference-architecture/resource-management/datacube-access-BB.md
-    - reference-architecture/resource-management/resource-registration-BB.md
-  - MLOps Building Block: reference-architecture/mlops-BB.md
-  - Reprodicible Science: reference-architecture/reproducible-science.md
-  - Utilisation Domains:
-    - Overview: utilisation-domains/utilisation-domains.md
-  - Document References: document-references.md
+  - System Architecture:
+    - Introduction: index.md
+    - High-level Architecture: reference-architecture/high-level-architecture.md
+    - Processing:
+      - Concepts: reference-architecture/processing/processing-concepts.md
+      - Building-block Approach: reference-architecture/processing/processing-BB-approach.md
+      - reference-architecture/processing/oapip-BB.md
+      - reference-architecture/processing/openeo-BB.md
+      - reference-architecture/processing/federated-orchestrator-BB.md
+    - Resource Management:
+      - Concepts: reference-architecture/resource-management/resource-management-concepts.md
+      - reference-architecture/resource-management/workspace-BB.md
+      - reference-architecture/resource-management/resource-discovery-BB.md
+      - reference-architecture/resource-management/data-access-BB.md
+      - reference-architecture/resource-management/datacube-access-BB.md
+      - reference-architecture/resource-management/resource-registration-BB.md
+    - Machine Learning:
+      - MLOps Building Block: reference-architecture/mlops-BB.md
+    - Other BBs:
+      - Notification & Automation Building Block: reference-architecture/notification-automation-BB.md
+      - Resource Health Building Block: reference-architecture/resource-health-BB.md
+      - Application Hub Building Block: reference-architecture/application-hub-BB.md
+    - Reprodicible Science:
+      - Concepts: reference-architecture/reproducible-science.md
+    - Utilisation Domains:
+      - Overview: utilisation-domains/utilisation-domains.md
+    - Links:
+      - Document References: document-references.md
 
 theme:
   # name: mkdocs
   # name: readthedocs
   name: material # https://squidfunk.github.io/mkdocs-material/creating-your-site/
-  # navigation_depth: 4
+  navigation_depth: 4
+
+  # For `material` theme...
+  logo: img/favicon.ico
+  favicon: img/favicon.ico
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    # - navigation.expand
+    # - toc.integrate
+    - navigation.top
+    - content.code.copy
 
 plugins:
   - autorefs
