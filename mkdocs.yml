@@ -16,6 +16,7 @@ nav:
     - Resource Management Building Blocks:
       - Concepts: reference-architecture/resource-management/resource-management-concepts.md
       - reference-architecture/resource-management/workspace-BB.md
+      - reference-architecture/resource-management/resource-discovery-BB.md
     - reference-architecture/reproducible-science.md
 
 theme:
