@@ -67,7 +67,7 @@ Capabilities should be offered through the following interfaces for both retriev
   Workspace-scoped capabilities as offered by the Resource Discovery building-block – including support for all of the identified resource types.<br>
   Includes the capability to mark individual datasets as (optionally) deliverable via a selection of data access services.
 *	**Resource Registration API**<br>
-  REST API through which resources of all type can be registered into the Resource Discovery and Data Access services of the workspace. STAC [RD22] catalog/item are posted to the API to initiated registration – the outcome of which are metadata records added to the Resource Catalogue, and (optionally) provisioned within the data access services.<br>
+  REST API through which resources of all type can be registered into the Resource Discovery and Data Access services of the workspace. STAC [[RD22]][rd22] catalog/item are posted to the API to initiated registration – the outcome of which are metadata records added to the Resource Catalogue, and (optionally) provisioned within the data access services.<br>
   Resource registration is often (typically) preceded by ‘upload’ of resource assets into the storage buckets that are linked to the workspace – and referenced as STAC item assets.
 *	**Data Access services**<br>
   Workspace-scoped capabilities as offered by the Data Access building-block.<br>

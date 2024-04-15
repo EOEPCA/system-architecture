@@ -16,8 +16,8 @@ The Resource Discovery design should follow a modular approach that is extensibl
 
 Resource Discovery should present search and browse interfaces. For interoperability these interfaces should be based on open standards:
 
-*	Spatio Temporal Asset Catalog (STAC) [RD22]
-*	OGC API Records [RD08]
+*	Spatio Temporal Asset Catalog (STAC) [[RD22]][rd22]
+*	OGC API Records [[RD08]][rd08]
 
 ### Metadata Backends
 
@@ -39,11 +39,11 @@ Web-enabled UI providing administrative access to the capabilities of the Resour
 
 Resource Discovery integrates with the Notification & Automation BB to receive metadata additions/updates and to raise notification events to interested subscribers – such as for data-driven systematic processing.
 
-In addition, Resource Discovery provides an API interface for direct registration of resources – via OGC API Features Part 4 (Create, Replace, Update and Delete [Transactions]) [RD10].
+In addition, Resource Discovery provides an API interface for direct registration of resources – via OGC API Features Part 4 (Create, Replace, Update and Delete [Transactions]) [[RD10]][rd10].
 
 ## Best Practice
 
 Resource Discovery shall maintain metadata in accordance with industry best practice, including:
 
-*	CEOS Service Metadata and Discovery Best Practices [RD26]
-*	[DRAFT] CEOS Jupyter Notebooks Best Practice [RD27]
+*	CEOS Service Metadata and Discovery Best Practices [[RD26]][rd26]
+*	[DRAFT] CEOS Jupyter Notebooks Best Practice [[RD27]][rd27]

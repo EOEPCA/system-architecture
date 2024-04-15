@@ -1,6 +1,6 @@
 # openEO Building Block
 
-The openEO building-block provides an implementation of the openEO API Specification [RD19], to support the remote execution of openEO Process Graphs [RD20].
+The openEO building-block provides an implementation of the openEO API Specification [[RD19]][rd19], to support the remote execution of openEO Process Graphs [[RD20]][rd20].
 
 There is an opportunity to engineer the openEO building block in such a way that it also facilitates consumption through users of the Pangeo stack. Several measures are identified that may aid this interoperation:
 

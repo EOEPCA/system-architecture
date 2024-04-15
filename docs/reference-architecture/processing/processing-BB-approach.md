@@ -1,4 +1,4 @@
-# Processing Building Blocks
+# Processing BB Approach
 
 In accordance with the Processing Concepts, we identify here a set of building-blocks that reflect the different technology stacks…
 
@@ -17,5 +17,5 @@ We define a Processing Building-block for each identified Processing Workflow pa
     2. It may also make sense for processing building-blocks to provide an implementation of the Xarray backend through which their services can be consumed as Xarray datasets. Perhaps this forms part of the implementation of their respective processing clients.
     3. The Processing Development Tooling refers to web applications that provide tooling that supports the development of the Processing Workflow – designed for integration with the Application Hub. In particular…
         1. visual editing of the workflow graph and specification of node attributes
-        2. packaging of Application Package [RD18] code into container images
+        2. packaging of Application Package [[RD18]][rd18] code into container images
         3. others TBD

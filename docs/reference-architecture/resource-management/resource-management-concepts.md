@@ -16,13 +16,13 @@ The types of resource maintained should be extensible, but should initially incl
   Multidimensional data accessed through cloud-optimised file formats, e.g. COG, Zarr, NetCDF.
 *	**Virtual Datacube**<br>
   A virtual datacube is created on-demand by execution of a Processing Workflow with specific parameterisation, e.g. an openEO process graph. Thus, the catalogue resource metadata must identify the workflow and the associated parameterisation.<br>
-  To be investigated whether this can be satisfied by the STAC datacube extension [RD23].
+  To be investigated whether this can be satisfied by the STAC datacube extension [[RD23]][rd23].
 *	**Replicable Workflows**<br>
   Data processing algorithms packaged as processing bundles for execution in the Processing Engines and Federated Orchestrator. Designed to be user-contributed. Allows to establish a library of available replicable processing workflows.
 *	**Reproducible Job Details**<br>
   Full details pertinent to the execution of a research ‘job’ (processing workflow execution) for the purpose of reproducible open science.
 *	**Jupyter Notebooks**<br>
-  In conformance with CEOS Best Practice [RD27], Notebooks published for sharing and/or linked to other resources.
+  In conformance with CEOS Best Practice [[RD27]][rd27], Notebooks published for sharing and/or linked to other resources.
 *	**Executable Services**<br>
   Replicable workflows that are ready deployed and published for execution. Published endpoints through which specific replicable workflows can be invoked. For example, a pre-deployed OGC Application Package that is ready for execution.
 *	**Platform Services**<br>
@@ -30,7 +30,7 @@ The types of resource maintained should be extensible, but should initially incl
 *	**Web Applications**<br>
   Applications that run within the platform as web services and present a web UI – designed to be user contributed. For example, discoverable services such as Dashboards for scientific storytelling that showcase research outcomes, etc. 
 *	**Machine Learning Training Data**<br>
-  This is an extension of Datasets – ensuring that the specific needs of Machine Learning (ML) data can be met. See Earth Observation Training Data Lab [RD31] for possible approach.
+  This is an extension of Datasets – ensuring that the specific needs of Machine Learning (ML) data can be met. See Earth Observation Training Data Lab [[RD31]][rd31] for possible approach.
 *	**Machine Learning Models**<br>
   This represents the collection of files that encapsulate a ML model – including any configuration and scripts that support the execution and training pipelines - ensuring that ML models can be accommodated and executed within the platform. Standard model formats, such as ONNX, should be specifically supported – and platforms should be expected to expose models in this format.
 *	**Collections**<br>

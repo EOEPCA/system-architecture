@@ -16,8 +16,8 @@ Thus, the Processing Client abstracts the underlying details of the Processing W
 
 The Processing Workflow describes the steps that together combine to achieve a collective goal – typically expressed as a graph of steps. There are a number of approaches that are currently popular through which users express their processing workflows:
 
-*	OGC Application Package (Common Workflow Language (CWL) [RD25] document) [RD18]
-*	openEO Process Graph [RD20]
+*	OGC Application Package (Common Workflow Language (CWL) [[RD25]][rd25] document) [[RD18]][rd18]
+*	openEO Process Graph [[RD20]][rd20]
 *	Others, for future consideration – such as Dask Task Graph
 
 In each of these cases the workflow is constructed in a suitable client and submitted, as a workflow, for execution – typically submitted to a server-side (platform) backend for execution close to the data.
@@ -29,7 +29,7 @@ The Processing Engine provides a backend service with a public standard API thro
 | Processing Engine Interface | Processing Workflow Description Format |
 |---|---|
 | OGC API Processes Parts 1&2 [RD05/RD06] | OGC Application Packages |
-| openEO API [RD19] | openEO Process Graph [RD20] |
+| openEO API [[RD19]][rd19] | openEO Process Graph [[RD20]][rd20] |
 
 
 The Processing Engine is responsible for implementing the API in accordance with the defining standard/specification. Each Processing Engine should be engineered to be extensible with pluggable Processing Runners.
