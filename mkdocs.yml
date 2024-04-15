@@ -19,6 +19,7 @@ nav:
     - reference-architecture/resource-management/data-access-BB.md
     - reference-architecture/resource-management/datacube-access-BB.md
     - reference-architecture/resource-management/resource-registration-BB.md
+  - MLOps Building Block: reference-architecture/mlops-BB.md
   - Reprodicible Science: reference-architecture/reproducible-science.md
   - Utilisation Domains:
     - Overview: utilisation-domains/utilisation-domains.md
