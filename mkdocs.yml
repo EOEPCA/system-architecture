@@ -52,12 +52,17 @@ theme:
     # - toc.integrate
     - navigation.top
     - content.code.copy
+    - content.action.edit
 
 extra_css:
   - css/eoepca.css
 
 plugins:
   - autorefs
+  - pub-debugger:
+      console_log:
+        enabled: true
+        log_level: INFO
 
 markdown_extensions:
   - tables
