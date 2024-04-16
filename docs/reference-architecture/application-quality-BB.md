@@ -6,7 +6,7 @@ The goal of the Application Quality BB is to support the evolution of a scientif
 
 The Application Quality BB delivers a set of services that can be used in automated pipelines that are linked to the source and runtime resources of processing workflow developments. Dedicated test environments provide representative sandboxed execution services that can be used as a gateway to production.
 
-![Application Quality](diagrams/application-quality.drawio.png)
+![Application Quality](diagrams/application-quality.drawio.png){: .centered}
 
 ## Components
 

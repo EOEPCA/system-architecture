@@ -6,7 +6,7 @@ Data Access are seen as a set of services that can be optionally ‘attached’ 
 
 Datasets are registered and discovered through the Resource Discovery component, with the expectation that the underlying data will be held in S3 object storage. Data Access provides a set of standard interfaces through which the datasets can be consumed – defining a common approach for consumption across data providers.
 
-![Data Access](diagrams/data-access.drawio.png)
+![Data Access](diagrams/data-access.drawio.png){: .centered}
 
 The standard interfaces for data access include…
 

@@ -15,7 +15,7 @@ The Workspace building-block comprises:
 *	**Workspace UI**<br>
   Web-enabled user interface for the capabilities offered by the Workspace and Storage Controllers.
 
-![Workspace](./diagrams/workspace.drawio.png)
+![Workspace](./diagrams/workspace.drawio.png){: .centered}
 
 ## Workspace Controller
 

@@ -9,7 +9,7 @@ Resource Registration supports the ingestion of data and its associated metadata
 
 The Resource Registration building-block is a companion to Resource Discovery in terms of satisfying the ingestion of the resource types supported by Resource Discovery. Thus, it provides a RESTful service interface for registration of all the Resource Types identified in the [Resource Types][resource-types] section.
 
-![Resource Registration](diagrams/resource-registration.drawio.png)
+![Resource Registration](diagrams/resource-registration.drawio.png){: .centered}
 
 ## Components
 

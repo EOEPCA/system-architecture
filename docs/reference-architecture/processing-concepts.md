@@ -4,7 +4,7 @@ The platform must support the user’s analysis and processing workflows across 
 
 To establish common terminology within this document, we define an overall concept for workflow processing – as illustrated by the following figure.
 
-![Processing Concepts](diagrams/processing-concepts.drawio.png)
+![Processing Concepts](diagrams/processing-concepts.drawio.png){: .centered}
 
 ## Processing Client
 
@@ -60,7 +60,7 @@ There is a dependency between the processing workflow and the data upon which it
 
 In accordance with the Processing Concepts, we identify here a set of building-blocks that reflect the different technology stacks…
 
-![Processing BBs](diagrams/processing-BB.drawio.png)
+![Processing BBs](diagrams/processing-BB.drawio.png){: .centered}
 
 We define a Processing Building-block for each identified Processing Workflow paradigm – each of which encompasses all elements of the stack **(Note 1)**:
 

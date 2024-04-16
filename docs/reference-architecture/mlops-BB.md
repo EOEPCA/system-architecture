@@ -11,7 +11,7 @@ The MLOps BB provides support services for training of machine learning models w
 * Establish model versions – maintaining the model assets in S3 object storage
 * Register versioned models for Resource Discovery via Resource Registration
 
-![MLOps BB](diagrams/mlops.drawio.png)
+![MLOps BB](diagrams/mlops.drawio.png){: .centered}
 
 ## Components
 

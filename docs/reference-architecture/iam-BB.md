@@ -15,7 +15,7 @@ The Identity & Access Management BB design should follow a modular approach thro
 * **Enforcement**<br>
   Protected access for requests to platform hosted resources.
 
-![Identity & Access Management](diagrams/iam.drawio.png)
+![Identity & Access Management](diagrams/iam.drawio.png){: .centered}
 
 ## Authorisation
 

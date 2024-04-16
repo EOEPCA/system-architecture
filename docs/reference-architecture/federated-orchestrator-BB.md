@@ -21,7 +21,7 @@ The Federated Orchestrator Engine implements the Workflow API to provide **Cross
 
 In doing so the Federated Orchestrator Engine should not limit workflow orchestration within a single Processing Workflow paradigm. Instead we should consider hybrid workflows in which individual steps may target differing Processing Workflow paradigms. The goal here is to remove barriers between the different technologies such that workflows can comprise steps across all identified Processing Workflow technologies. It is anticipated that this would involve dynamic translation between the workflow languages of the different paradigms – in order to submit appropriate (sub-)workflows to Processing Engines.
 
-![Federated Orchestrator](diagrams/federated-orchestrator.drawio.png)
+![Federated Orchestrator](diagrams/federated-orchestrator.drawio.png){: .centered}
 
 ## Exploitation Client
 

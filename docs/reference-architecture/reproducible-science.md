@@ -11,7 +11,7 @@ To support reproducible open science, the architecture must support the capabili
 
 To achieve reproducibility the job details must be recorded regarding workflow execution at all levels. Thus, the Processing Engines must output jobs details that can be recorded as resources in the Resource Discovery. The Federated Orchestrator must similarly output aggregated job details pertaining to the overall workflow execution, comprising the details of individual steps executed in the Processing Engines.
 
-![Reproducible Science](diagrams/reproducible-science.drawio.png)
+![Reproducible Science](diagrams/reproducible-science.drawio.png){: .centered}
 
 The Job Details recorded should record all information required to reproduce the job, including at least:
 

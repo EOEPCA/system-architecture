@@ -4,7 +4,7 @@
 
 This section presents a high-level overview of the reference architecture that introduces the building-blocks in the context of an overall system. For a complete understanding the dedicated building-block sections should be consulted for more detail.
 
-![Reference Architecture](diagrams/high-level-architecture.drawio.png)
+![Reference Architecture](diagrams/high-level-architecture.drawio.png){: .centered}
 
 The Reference Architecture is defined as a set of building-blocks, each of which contributes to the overall capabilities of an integrated platform.
 

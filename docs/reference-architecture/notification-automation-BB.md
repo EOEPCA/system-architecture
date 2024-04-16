@@ -11,7 +11,7 @@ The Notification & Automation building-block offers a framework that comprises t
 * **Automation Service**<br>
   Supports user-definable automation that can be triggered for data-driven and scheduled behaviour.
 
-![Notification & Automation](diagrams/notification-automation.drawio.png)
+![Notification & Automation](diagrams/notification-automation.drawio.png){: .centered}
 
 ## Notification Service
 

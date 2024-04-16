@@ -44,7 +44,7 @@ The types of resource maintained should be extensible, but should initially incl
 
 A fundamental feature is the management of datasets within the platform. To inform the building-block design, we consider the typical flow for dataset management – applicable at all levels (global, project/group, user).
 
-![Dataset Management Flow](diagrams/dataset-management-flow.png)
+![Dataset Management Flow](diagrams/dataset-management-flow.png){: .centered}
 
 The architecture capabilities must reflect the dataset management flow…
 

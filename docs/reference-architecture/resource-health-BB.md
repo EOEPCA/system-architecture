@@ -4,7 +4,7 @@ The Resource Health BB aims at supporting the platform operators and users to mo
 
 To this end, the Resource Health BB should offer a generalised capability that allows all types of users (operators, administrators, users, etc.) to specify and schedule checks relating to their resources of interest, to visualise the outcome of the checks, and to receive notifications according to the outcome.
 
-![Resource Health](diagrams/resource-health.drawio.png)
+![Resource Health](diagrams/resource-health.drawio.png){: .centered}
 
 The Resource Health BB generalised capability should support specification of health checks that include (not limited to):
 

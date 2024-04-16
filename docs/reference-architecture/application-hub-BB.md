@@ -2,7 +2,7 @@
 
 The Application Hub is a general capability through which web-enabled interactive applications can be hosted and exposed as web applications. The application framework acts as a web-facing entrypoint through which an extensible set of applications are exposed – extensible through custom configuration.
 
-![Application Hub](diagrams/application-hub.drawio.png)
+![Application Hub](diagrams/application-hub.drawio.png){: .centered}
 
 The Application Hub should support a number of different types of application:
 

@@ -4,7 +4,7 @@
 
 Resource Discovery provides a catalogue that maintains metadata for the resources held within a platform, and also supports platform federation by maintaining records to resources in other platforms.
 
-![Resource Discovery](diagrams/resource-discovery.drawio.png)
+![Resource Discovery](diagrams/resource-discovery.drawio.png){: .centered}
 
 ## Components
 
