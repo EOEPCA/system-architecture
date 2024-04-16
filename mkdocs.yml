@@ -59,10 +59,14 @@ extra_css:
 
 plugins:
   - autorefs
-  - pub-debugger:
-      console_log:
-        enabled: true
-        log_level: INFO
+  # - pub-debugger:
+  #     console_log:
+  #       enabled: true
+  #       log_level: INFO
+  #     file_log:
+  #       enabled: false
+  #     zip_log:
+  #       enabled: false
 
 markdown_extensions:
   - tables
