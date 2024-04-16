@@ -4,6 +4,7 @@ repo_url: https://github.com/EOEPCA/document-template/
 edit_uri: "edit/main/docs/"
 
 nav:
+  - Home: home.html
   - Building-block Name:
     - index.md
     - Getting Started:
