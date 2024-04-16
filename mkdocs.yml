@@ -1,6 +1,6 @@
 site_name: EOEPCA System Architecture
-# site_url: https://deployment-guide.docs.eoepca.org
-# repo_url: https://github.com/EOEPCA/deployment-guide
+site_url: https://eoepca.readthedocs.io/projects/architecture
+repo_url: https://github.com/EOEPCA/system-architecture
 # edit_uri: ""
 
 nav:
