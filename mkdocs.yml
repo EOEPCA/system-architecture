@@ -1,0 +1,79 @@
+site_name: EOEPCA Document Template
+site_url: https://eoepca.readthedocs.io/projects/template/en/latest/
+repo_url: https://github.com/EOEPCA/document-template/
+edit_uri: "edit/main/docs/"
+
+nav:
+  - Building-block Name:
+    - index.md
+    - Getting Started:
+      - getting-started/quick-start.md
+      - getting-started/more-getting-started.md
+    - Design:
+      - design/overview.md
+      - design/more-design.md
+    - Usage:
+      - usage/tutorials.md
+      - usage/howtos.md
+    - Administration:
+      - admin/configuration.md
+      - admin/maintenance.md
+    - API:
+      - api/endpoint-specification.md
+      - api/usage.md
+
+theme:
+  # name: mkdocs
+  # name: readthedocs
+  name: material # https://squidfunk.github.io/mkdocs-material/creating-your-site/
+  navigation_depth: 4
+
+  # For `material` theme...
+  logo: img/favicon.ico
+  favicon: img/favicon.ico
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    # - navigation.expand
+    # - toc.integrate
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+
+extra_css:
+  - css/eoepca.css
+
+plugins:
+  - autorefs
+  # - pub-debugger:
+  #     console_log:
+  #       enabled: true
+  #       log_level: INFO
+  #     file_log:
+  #       enabled: false
+  #     zip_log:
+  #       enabled: false
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: ⚓︎
+      toc_depth: 4
+  - smarty
+  - sane_lists
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - abbr
+  - attr_list
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
