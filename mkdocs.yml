@@ -17,6 +17,7 @@ nav:
       - Federated Orchestrator: reference-architecture/federated-orchestrator-BB.md
       - Workspace: reference-architecture/workspace-BB.md
       - Resource Discovery: reference-architecture/resource-discovery-BB.md
+      - Data Gateway: reference-architecture/data-gateway-BB.md
       - Data Access: reference-architecture/data-access-BB.md
       - Datacube Access: reference-architecture/datacube-access-BB.md
       - Resource Registration: reference-architecture/resource-registration-BB.md
