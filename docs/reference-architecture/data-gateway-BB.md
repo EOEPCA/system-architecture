@@ -18,7 +18,7 @@ To support the needs of the dependent building blocks, the Data Gateway provides
 * Retrieve products (raw assets)
 * Retrieve xarray.DataArray representation
 
-See section [[Dependent Building Blocks]][dependent-building-blocks] - which elaborates the usage of the Data Gateway by other building blocks.
+See section [Dependent Building Blocks][dependent-building-blocks] - which elaborates the usage of the Data Gateway by other building blocks.
 
 ### Extensible
 
