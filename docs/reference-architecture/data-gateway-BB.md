@@ -6,20 +6,27 @@ The Data Gateway building block provides a consolidated and consistent capabilit
 
 Within the architecture there are a number of points of interaction with data sources for discovery and access to datasets and data products. Each data source has its own interface requirements, including authentication, metadata search, data retrieval, etc.
 
-Rather than implement the logic required for specific data source interaction in each BB where it is required - instead the Data Gateway provides a consolidated implementation that all platform services can exploit as they require. In this way, the interface with each data provider is only implemented once, and there is only one implementation that requires maintenenance in the case that the data provider interface evolves.
+Rather than implement the logic required for specific data source interaction in each BB where it is required - instead the Data Gateway provides a consolidated implementation that all platform services can reuse and exploit as they require. In this way, the interface with each data provider is only implemented once, and there is only one implementation that requires maintenance in the case that the data provider interface evolves.
 
 ### Capabilities
 
 To support the needs of the dependent building blocks, the Data Gateway provides the following capabilities:
 
 * Discover data providers
-* Discover product types
+* Discover product types<br>
+  _Retrieve full product metadata_
 * Search products<br>
   _By type and temporal/spatial search criteria, plus other properties for filtering_
 * Retrieve products (raw assets)
 * Multi-dimensional data representation (`xarray.DataArray`)
 
 See section [Dependent Building Blocks][dependent-building-blocks] - which elaborates the usage of the Data Gateway by other building blocks.
+
+!!! note
+    The Data Gateway must adapt to the emerging requirements of the building blocks regarding interfacing with data providers and datasets, including:
+
+    * Addition of new data providers and datasets
+    * Additional representations of product metadata and data products - to satisfy sepcific BB use cases
 
 ### Extensible
 
@@ -29,10 +36,13 @@ To support an ever growing set of data sources, the Data Gateway must be extensi
 * Authentication approach
 * Search interface protocol/standard
 * Data retrieval approach/standard
+* Metadata and data product representation
 
 ## Approach
 
 The Data Gateway provides a singluar, reusable point of interface with an extensible capability of integrated data source offerings.
+
+![Data Gateway](diagrams/data-gateway.drawio.png){: .centered}
 
 ### Embeddable
 
@@ -121,8 +131,6 @@ The Harvester will have used the Data Gateway in the first instance to discover 
 It may therefore be desirable for the Data Access BB to rely, where appropriate, upon the Data Gateway for retrieval of the corresponding assets - thus benefitting from the consolidated solution for data provider integration. Reusing the Data Gateway in this way provides consistency of approach (i.e. reusing the same data provider implementation used for harvesting) and ensures that the Data Access benefits from the extensibility and maintenance afforded to the Data Gateway.
 
 ### Data Cube Access BB
-
-<span class="highlight-yellow">TBD</span>
 
 The Data Cube Access BB provides ‘pixel-based’ access to multidimensional data in accordance with the emerging OGC GeoDatacube API (ref. Testbed-19). The goal of this API is to harmonise access to multidimensional data – and in doing so facilitate fusion of data from multiple sources by allowing alignment of units, geometries, references systems, etc.
 
