@@ -90,7 +90,7 @@ This section introduces the other building blocks that are expected to utilise t
 
 The ability of the Data Gateway to be extended to support additional data sources (providers) is intended to help meet the extensibility needs of these components.
 
-### Harvester Data Sources 
+### Harvester Data Sources Usage
 
 _Component of the Resource Registration BB._
 
@@ -102,7 +102,7 @@ Thus, the Data Gateway provides an established set of data providers from which 
 
 The Data Gateway approach facilitates expansion of the list of supported providers for data harvesting - e.g. by community plugins etc.
 
-### Processing Data Sources
+### Processing Data Sources Usage
 
 _Component of the Processing BB._
 
@@ -122,7 +122,7 @@ The expectation is that the Data Gateway provides a means to obtain a STAC repre
 
 Different deployments of the Processing Service (e.g. in different platforms), can be provisioned with a Data Gateway that is configured with different sets of data-provider/dataset they choose to support.
 
-### Data Access BB
+### Data Access BB Usage
 
 The data access BB will receive the STAC items from the harvester from which it will register data products into its services (retrieval/visualisation etc.). In doing so it will access the data assets as referenced by the links in the STAC items, via S3 etc.
 
@@ -130,7 +130,7 @@ The Harvester will have used the Data Gateway in the first instance to discover 
 
 It may therefore be desirable for the Data Access BB to rely, where appropriate, upon the Data Gateway for retrieval of the corresponding assets - thus benefitting from the consolidated solution for data provider integration. Reusing the Data Gateway in this way provides consistency of approach (i.e. reusing the same data provider implementation used for harvesting) and ensures that the Data Access benefits from the extensibility and maintenance afforded to the Data Gateway.
 
-### Data Cube Access BB
+### Data Cube Access BB Usage
 
 The Data Cube Access BB provides ‘pixel-based’ access to multidimensional data in accordance with the emerging OGC GeoDatacube API (ref. Testbed-19). The goal of this API is to harmonise access to multidimensional data – and in doing so facilitate fusion of data from multiple sources by allowing alignment of units, geometries, references systems, etc.
 

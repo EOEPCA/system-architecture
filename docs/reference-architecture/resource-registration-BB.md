@@ -39,6 +39,8 @@ At minimum registration of data assets should be supported from the following so
 
 #### Data Gateway Reuse
 
+See section [Harvester Data Sources dependency on the Data Gateway][harvester-data-sources-usage].
+
 The implementation of the Harvester Data Source components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-building-block] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
 
 ## Registration into Building-blocks

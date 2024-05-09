@@ -58,6 +58,8 @@ There is a dependency between the processing workflow and the data upon which it
 
 ### Data Gateway Reuse
 
+See section [Processing Data Source dependency on the Data Gateway][processing-data-sources-usage].
+
 The implementation of the Processing Data Source components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-building-block] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
 
 The Data Gateway can provide a consistent means for identifying both data provider and datasets for processing inputs – such that a given processing workflow can be ‘verified’ against specified dataset/provider combinations.
