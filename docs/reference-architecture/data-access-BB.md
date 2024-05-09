@@ -39,7 +39,9 @@ See section [Data Access BB dependency on the Data Gateway][data-access-bb-usage
 
 The implementation of the Asset Storage Driver components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-building-block] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
 
-It is anticipated that the _Harvester_ component will use the Data Gateway to source the products that are registered in the platform services. Similarly, the Data Access BB can rely upon the Data Gateway for retrieval of the corresponding assets (using the same data provider) - thus benefitting from the consolidated solution for data provider integration. 
+It is anticipated that the _Harvester_ component will use the Data Gateway to source the products that are registered in the platform services. Similarly, the Data Access BB can rely upon the Data Gateway for retrieval of the corresponding assets (using the same data provider) - thus benefitting from the consolidated solution for data provider integration.
+
+The Data Gateway provides access to the (raw) assets that are referenced from the product metadata - which facilitates their retrieval and delivery via the data access services.
 
 ### Data Access UI
 

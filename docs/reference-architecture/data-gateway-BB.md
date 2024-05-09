@@ -57,7 +57,7 @@ This capability is designed to be embeddable/invocable from a number of other bu
 * **Data Access**<br>
   *For retrieval of dataset assets into the services for data visualisation and access.*
 
-* **Data Cube Access**<br>
+* **Datacube Access**<br>
   *For discovery and access to multi-dimensional data, including for consumption as `xarray.DataArray`.*
 
 * **Federated Orchestrator**<br>
@@ -130,11 +130,11 @@ The Harvester will have used the Data Gateway in the first instance to discover 
 
 It may therefore be desirable for the Data Access BB to rely, where appropriate, upon the Data Gateway for retrieval of the corresponding assets - thus benefitting from the consolidated solution for data provider integration. Reusing the Data Gateway in this way provides consistency of approach (i.e. reusing the same data provider implementation used for harvesting) and ensures that the Data Access benefits from the extensibility and maintenance afforded to the Data Gateway.
 
-### Data Cube Access BB Usage
+### Datacube Access BB Usage
 
-The Data Cube Access BB provides ‘pixel-based’ access to multidimensional data in accordance with the emerging OGC GeoDatacube API (ref. Testbed-19). The goal of this API is to harmonise access to multidimensional data – and in doing so facilitate fusion of data from multiple sources by allowing alignment of units, geometries, references systems, etc.
+The Datacube Access BB provides ‘pixel-based’ access to multidimensional data in accordance with the emerging OGC GeoDatacube API (ref. Testbed-19). The goal of this API is to harmonise access to multidimensional data – and in doing so facilitate fusion of data from multiple sources by allowing alignment of units, geometries, references systems, etc.
 
-Underlying the implementation of the Data Cube Access BB is the need to enumerate and access the data product assets. The Data Cube Access BB can benefit from the common implementation of the interface with the data source provided by the Data Gateway BB. In addition, the ability of the Data Gateway to offer an `xarray.DataArray` representation should offer an additional benefit.
+Underlying the implementation of the Datacube Access BB is the need to enumerate and access the data product assets. The Datacube Access BB can benefit from the common implementation of the interface with the data source provided by the Data Gateway BB. In addition, the ability of the Data Gateway to offer an `xarray.DataArray` representation should offer an additional benefit.
 
 ### Federated Orchestrator BB
 
