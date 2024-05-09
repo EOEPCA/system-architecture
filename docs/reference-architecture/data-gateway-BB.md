@@ -136,7 +136,7 @@ The Datacube Access BB provides ‘pixel-based’ access to multidimensional dat
 
 Underlying the implementation of the Datacube Access BB is the need to enumerate and access the data product assets. The Datacube Access BB can benefit from the common implementation of the interface with the data source provided by the Data Gateway BB. In addition, the ability of the Data Gateway to offer an `xarray.DataArray` representation should offer an additional benefit.
 
-### Federated Orchestrator BB
+### Federated Orchestrator BB Usage
 
 The Federated Orchestrator provides a Workflow API that is designed to exploit the collective data and processing capabilities of multiple platforms operating within a distributed federated environment. In this context, the Federated Orchestrator is required to hold a view of the capabilities on offer within the federated network.
 

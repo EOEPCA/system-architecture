@@ -40,5 +40,18 @@ The Exploitation Client should build upon the Processing Client implementations 
 
 openEO already provides a client library (implemented in Python, R and JavaScript), and some OGC services are supported via libraries such as OWSLib. The Exploitation Client is seen as an extension to these to cover the full set of platform services required to implement heterogenous cross-platform workflows.
 
+## Data Gateway Reuse
 
+See section [Federated Orchestrator dependency on the Data Gateway][federated-orchestrator-bb-usage].
 
+**_Federated Orchestrator Engine_**
+
+By utilising the Data Gateway, the Federated Orchestrator is able to present the data offering of the federated providers as homogeneous set - such that the users of the Workflow API need not be aware of the 'underlying' data source provider.
+
+This facilitates the Federated Orchestrator to apply business logic that determines the most appropriate data source for a given user dataset request, in combination with other concerns such as workflow engine capabilities - and so orchestrate the federated workflow across the most appropriate platforms.
+
+**_Exploitation Client_**
+
+The primary approach of the Exploitation Client is to provide programmatic access to the Workflow API offered by the Federated Orchestrator.
+
+Nevertheless, it may be of interest to include the Data Gateway (python bindings) to interface direcytly with the federated data offering.
