@@ -56,6 +56,14 @@ The Processing Data Source provides an integration with a data source to make th
 
 There is a dependency between the processing workflow and the data upon which it is designed to operate. This component facilitates the ability of the Processing Engine/Runner to deliver the input data to the processing workflow in the expected form.
 
+### Data Gateway Reuse
+
+The implementation of the Processing Data Source components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-building-block] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
+
+The Data Gateway can provide a consistent means for identifying both data provider and datasets for processing inputs – such that a given processing workflow can be ‘verified’ against specified dataset/provider combinations.
+
+The Data Gateway can facilitate the Processing Data Source to obtain a STAC representation of the input data, with local or remote asset links - thus supporting stage-in in accordance with the [OGC Best Practice for Application Packages (EO Products Data Flow Management)](https://docs.ogc.org/bp/20-089r1.html#_eo_products_data_flow_management).
+
 ## Processing Building-block Approach
 
 In accordance with the Processing Concepts, we identify here a set of building-blocks that reflect the different technology stacks…
