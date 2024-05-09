@@ -37,8 +37,9 @@ At minimum harvesting should be supported from the following sources for metadat
 
 At minimum registration of data assets should be supported from the following sources: S3 object storage, HTTP, Filesystem, Swift object storage.
 
-!!! note
-    The implementation of the Harvester Data Source components may be partly or wholly met by the capabilities of the **Data Gateway** building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
+#### Data Gateway Reuse
+
+The implementation of the Harvester Data Source components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-building-block] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
 
 ## Registration into Building-blocks
 
