@@ -4,7 +4,7 @@
 
 ### **AD01**
 
-KPT92099-AD01 - EOEPCA+ Use Case Definition Document
+[KPT92099-AD01 - EOEPCA+ Use Case Definition Document](files/EOEPCA+%20Use%20Case%20Definition%20Document.pdf){:target="_blank"}
 
 ## Reference Documents
 
