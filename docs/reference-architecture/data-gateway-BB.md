@@ -4,9 +4,14 @@
 
 The Data Gateway building block provides a consolidated and consistent capability for accessing the data offering of an extensible set of data providers and datasets.
 
-Within the architecture there are a number of points of interaction with data sources for discovery and access to datasets and data products. Each data source has its own interface requirements, including authentication, metadata search, data retrieval, etc.
+Within the architecture there are a number of points of interaction with data sources for discovery and access to datasets and data products. Each _Data Provider/Dataset_ has their own specific rules-of-engagement that must be uniquely taken into account...
 
-Rather than implement the logic required for specific data source interaction in each BB where it is required - instead the Data Gateway provides a consolidated implementation that all platform services can reuse and exploit as they require. In this way, the interface with each data provider is only implemented once, and there is only one implementation that requires maintenance in the case that the data provider interface evolves.
+* Interfaces/standards for discovery, metadata search and data retrieval
+* Metadata and data formats
+* Delivery of data assets from underlying storage
+* Approach to user identity, authentication and authorization
+
+**_Rather than implement the logic required for specific data source interaction in each BB where it is required - instead the Data Gateway provides a consolidated implementation that all platform services can reuse and exploit as they require. In this way, the interface with each data provider is only implemented once, and there is only one implementation that requires maintenance in the case that the data provider interface evolves._**{ .blue-text }
 
 ### Capabilities
 
@@ -92,7 +97,7 @@ The ability of the Data Gateway to be extended to support additional data source
 
 ### Harvester Data Sources Usage
 
-_Component of the Resource Registration BB._
+**_Component of the Resource Registration BB_**{ .blue-text }
 
 The Harvester Data Source components are designed to provide an integration with specific data sources to provide customised support for record harvesting and interpretation.
 
@@ -104,7 +109,7 @@ The Data Gateway approach facilitates expansion of the list of supported provide
 
 ### Processing Data Sources Usage
 
-_Component of the Processing BB._
+**_Component of the Processing BB_**{ .blue-text }
 
 The Processing Data Source components provide an integration with a data provider to make the dataset available as a processing workflow input.
 
