@@ -33,6 +33,7 @@ theme:
   logo: img/favicon.ico
   favicon: img/favicon.ico
   features:
+    # Navigation
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
@@ -41,14 +42,20 @@ theme:
     # - navigation.expand
     # - toc.integrate
     - navigation.top
+    # Content
     - content.code.copy
     - content.action.edit
+    # Search
+    - search.highlight
+    - search.share
+    - search.suggest
 
 extra_css:
   - css/eoepca.css
 
 plugins:
   - autorefs
+  - search
   # - pub-debugger:
   #     console_log:
   #       enabled: true
