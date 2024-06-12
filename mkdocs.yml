@@ -12,8 +12,9 @@ nav:
       - Resource Management: reference-architecture/resource-management-concepts.md
       - Reproducible Science: reference-architecture/reproducible-science.md
     - Building Blocks (Platform):
-      - OAPIP (OGC API Processes): reference-architecture/oapip-BB.md
-      - openEO: reference-architecture/openeo-BB.md
+      - Processing:
+        - OAPIP (OGC API Processes): reference-architecture/oapip-pe.md
+        - openEO: reference-architecture/openeo-pe.md
       - Workspace: reference-architecture/workspace-BB.md
       - Resource Discovery: reference-architecture/resource-discovery-BB.md
       - Data Access: reference-architecture/data-access-BB.md

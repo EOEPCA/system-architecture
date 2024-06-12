@@ -1,6 +1,6 @@
-# OAPIP Building Block
+# OAPIP Processing Engine
 
-The OAPIP BB provides an implementation of a _Processing BB_ as introduced in the [Processing Concepts][processing-concepts] section. It provides an implementation of the OGC API Processes standard – Parts 1 & 2(draft) [RD05/RD06] in conjunction with the OGC Best Practice for Application Packages [[RD18]][rd18].
+The OAPIP Processing Engine provides an implementation of a _Processing BB_ as introduced in the [Processing Concepts][processing-concepts] section. It provides an implementation of the OGC API Processes standard – Parts 1 & 2(draft) [RD05/RD06] in conjunction with the OGC Best Practice for Application Packages [[RD18]][rd18].
 
 The building-block should support extensible Processing Runner implementations – noting that the current EOEPCA ADES component (ZOO-Project-DRU) provides a CWL runner (Calrissian) that executes on Kubernetes. Work has also been performed to integrate an alternative CWL Runner (TOIL) that executes on Slurm HPC.
 
