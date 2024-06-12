@@ -1,6 +1,6 @@
-# openEO Building Block
+# openEO Processing Engine
 
-The openEO BB provides an implementation of a _Processing BB_ as introduced in the [Processing Concepts][processing-concepts] section. It provides an implementation of the openEO API Specification [[RD19]][rd19], to support the remote execution of openEO Process Graphs [[RD20]][rd20].
+The openEO Processing Engine provides an implementation of a _Processing BB_ as introduced in the [Processing Concepts][processing-concepts] section. It provides an implementation of the openEO API Specification [[RD19]][rd19], to support the remote execution of openEO Process Graphs [[RD20]][rd20].
 
 There is an opportunity to engineer the openEO building block in such a way that it also facilitates consumption through users of the Pangeo stack. Several measures are identified that may aid this interoperation:
 
