@@ -4,6 +4,7 @@ repo_url: https://github.com/EOEPCA/system-architecture/
 edit_uri: "edit/main/docs/"
 
 nav:
+  - EOEPCA Documentation: https://eoepca.readthedocs.io/
   - System Architecture:
     - Introduction: index.md
     - High-level Architecture: reference-architecture/high-level-architecture.md
