@@ -37,6 +37,8 @@ nav:
       - EarthCODE: utilisation-domains/earthcode.md
     - Links:
       - Document References: document-references.md
+  - Resource Discovery: https://eoepca.readthedocs.io/projects/resource-discovery/
+  - Data Access: https://eoepca.readthedocs.io/projects/data-access/
 
 theme:
   # name: mkdocs
