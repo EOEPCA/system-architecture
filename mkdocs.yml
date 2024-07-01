@@ -12,6 +12,7 @@ nav:
       - Processing: reference-architecture/processing-concepts.md
       - Resource Management: reference-architecture/resource-management-concepts.md
       - Reproducible Science: reference-architecture/reproducible-science.md
+      - reference-architecture/http-asset-access.md
     - Building Blocks (Platform):
       - Processing:
         - OAPIP (OGC API Processes): reference-architecture/oapip-pe.md
@@ -81,6 +82,8 @@ plugins:
   #       enabled: false
 
 markdown_extensions:
+  - plantuml_markdown:
+      server: https://www.plantuml.com/plantuml
   - tables
   - toc:
       permalink: ⚓︎

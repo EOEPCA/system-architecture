@@ -1,0 +1,55 @@
+@startuml Http Asset Access - Catalogue Approach
+
+actor User as user
+control IAM as IAM
+queue "Processing" as ADES
+entity job as job
+participant Catalogue as cat
+database Storage as storage
+
+user -> IAM : Authenticate (OIDC)
+IAM -> user: Bearer token (JWT)
+note left
+JWT token is used
+to authenticate user
+on all subsequent requests
+end note
+
+user -> cat: STAC API Item search (for input data selection)
+cat -> cat: internal query\nfor results
+loop for each result
+ cat -> storage: get presigned URL (e.g. presignedGetObject)
+ storage -> cat: presigned URL to be put in STAC Item entry 
+end loop
+cat -> user: STAC Items matching the query
+user -> user: extract pre-signed URL from STAC Item entry (href)
+	note right
+	  no JWT token is required
+		for accessing data via the
+		pre-signed URL
+	end note
+	
+alt user wants to download/access data locally
+	loop for each product to download
+		user -> storage: Access/download data using GDAL (or curl)
+	end loop
+
+else user wants to process data
+  user -> ADES: Submit processing request\n(pre-signed URLs in input)
+  ADES -> job: job is sumitted
+	job -> storage: GET data using the pre-signed URL
+		note right
+	    no JWT token is required
+		  for accessing data via the
+		  pre-signed URL
+	  end note
+	storage -> job: input data
+	job -> job: generate outputs
+	job -> storage: push outputs
+		note right
+	    no authentication required here?
+			how do we manage this?
+	  end note	
+end
+
+@enduml
