@@ -1,5 +1,7 @@
 @startuml Http Asset Access - Catalogue Approach
 
+title Http Asset Access - Catalogue Approach
+
 actor User as user
 control IAM as IAM
 queue "Processing" as ADES
