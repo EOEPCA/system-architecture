@@ -1,7 +1,7 @@
 site_name: EOEPCA System Architecture
 site_url: https://eoepca.readthedocs.io/projects/architecture/
 repo_url: https://github.com/EOEPCA/system-architecture/
-edit_uri: "edit/{branch}/docs/"
+edit_uri: "edit/feature/http-asset-access/docs/"
 
 nav:
   - EOEPCA Documentation: https://eoepca.readthedocs.io/
