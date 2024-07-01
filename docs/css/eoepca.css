@@ -4,6 +4,12 @@ img.centered {
   margin-right: auto;
 }
 
+img.uml {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .green-text {
   color: green;
 }
