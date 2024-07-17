@@ -38,6 +38,8 @@ The **Resource Health BB** provides a background service for monitoring and repo
 
 In order to fully exploit the capabilities of multiple platforms and their complementary offerings, we introduce services that facilitate cross-platform consumption of resources.
 
+The **Data Gateway** provides a consolidated and consistent capability for accessing the data offering of an extensible set of federated data providers and datasets - such that the interface with each data provider is only implemented once, and there is only one implementation that requires maintenance in the case that the data provider interface evolves.
+
 The **Federated Orchestrator** provides an interface for execution of processing workflows that is designed to work cross-platform and cross-technology. The goal is for processing workflow execution to be directed (whole or in part) towards the most appropriate platform for remote execution – according to configured business rules.
 
 **Resource Discovery** contributes to cross-platform integration with capabilities for catalogue federation, which allows search queries to federate across the offering of multiple platforms. This supports the Federated Orchestrator in the execution of cross-platform processing workflows.

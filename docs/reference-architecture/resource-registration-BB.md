@@ -31,12 +31,17 @@ The Harvester proactively initiates and orchestrates the harvesting capability, 
 
 ### Harvester Data Source(s)
 
-**_Provides an integration with a specific data source to provide customised support for record harvesting and interpretation.<br>
-Designed to be plugged-in to the Harvester for a given deployment._**
+**_Provides an integration with a specific data source to provide customised support for record harvesting and interpretation, that is designed to be plugged-in to the Harvester for a given deployment._**
 
 At minimum harvesting should be supported from the following sources for metadata: OGC API Records [[RD08]][rd08], STAC (static) [[RD22]][rd22], Opensearch [[RD24]][rd24].
 
 At minimum registration of data assets should be supported from the following sources: S3 object storage, HTTP, Filesystem, Swift object storage.
+
+#### Data Gateway Reuse
+
+See section [Harvester Data Sources dependency on the Data Gateway][harvester-data-sources-usage].
+
+The implementation of the Harvester Data Source components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-building-block] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
 
 ## Registration into Building-blocks
 

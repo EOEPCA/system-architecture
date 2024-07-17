@@ -9,24 +9,25 @@ nav:
     - Introduction: index.md
     - High-level Architecture: reference-architecture/high-level-architecture.md
     - Concepts:
-      - Processing: reference-architecture/processing-concepts.md
       - Resource Management: reference-architecture/resource-management-concepts.md
       - Reproducible Science: reference-architecture/reproducible-science.md
-    - Building Blocks:
-      - OAPIP (OGC API Processes): reference-architecture/oapip-BB.md
-      - openEO: reference-architecture/openeo-BB.md
-      - Federated Orchestrator: reference-architecture/federated-orchestrator-BB.md
-      - Workspace: reference-architecture/workspace-BB.md
+    - Building Blocks (Platform):
       - Resource Discovery: reference-architecture/resource-discovery-BB.md
+      - Resource Registration: reference-architecture/resource-registration-BB.md
       - Data Access: reference-architecture/data-access-BB.md
       - Datacube Access: reference-architecture/datacube-access-BB.md
-      - Resource Registration: reference-architecture/resource-registration-BB.md
+      - Workspace: reference-architecture/workspace-BB.md
+      - Processing: reference-architecture/processing-BB.md
       - MLOps: reference-architecture/mlops-BB.md
-      - Notification & Automation: reference-architecture/notification-automation-BB.md
       - Resource Health: reference-architecture/resource-health-BB.md
+      - Notification & Automation: reference-architecture/notification-automation-BB.md
+    - Building Blocks (Federation):
+      - Data Gateway: reference-architecture/data-gateway-BB.md
+      - Federated Orchestrator: reference-architecture/federated-orchestrator-BB.md
+      - Identity & Access Management: reference-architecture/iam-BB.md
+    - Building Blocks (Applications):
       - Application Hub: reference-architecture/application-hub-BB.md
       - Application Quality: reference-architecture/application-quality-BB.md
-      - Identity & Access Management: reference-architecture/iam-BB.md
     - Utilisation Domains:
       - Overview: utilisation-domains/utilisation-domains.md
       - Application Propogation Environment (APEx): utilisation-domains/apex.md
@@ -38,7 +39,7 @@ theme:
   # name: mkdocs
   # name: readthedocs
   name: material # https://squidfunk.github.io/mkdocs-material/creating-your-site/
-  navigation_depth: 4
+  navigation_depth: 5
 
   # For `material` theme...
   logo: img/favicon.ico
