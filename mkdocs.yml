@@ -9,13 +9,10 @@ nav:
     - Introduction: index.md
     - High-level Architecture: reference-architecture/high-level-architecture.md
     - Concepts:
-      - Processing: reference-architecture/processing-concepts.md
       - Resource Management: reference-architecture/resource-management-concepts.md
       - Reproducible Science: reference-architecture/reproducible-science.md
     - Building Blocks (Platform):
-      - Processing:
-        - OAPIP (OGC API Processes): reference-architecture/oapip-pe.md
-        - openEO: reference-architecture/openeo-pe.md
+      - Processing: reference-architecture/processing-BB.md
       - Workspace: reference-architecture/workspace-BB.md
       - Resource Discovery: reference-architecture/resource-discovery-BB.md
       - Data Access: reference-architecture/data-access-BB.md
