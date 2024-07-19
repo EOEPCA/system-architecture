@@ -5,7 +5,6 @@ edit_uri: "edit/main/docs/"
 
 nav:
   - EOEPCA Documentation: https://eoepca.readthedocs.io/
-  - System Architecture: https://eoepca.readthedocs.io/projects/architecture/
   - Building-block Name:
     - index.md
     - Getting Started:
