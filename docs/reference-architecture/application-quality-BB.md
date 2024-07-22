@@ -1,5 +1,7 @@
 # Application Quality Architecture
 
+**See also the [Detailed Application Quality Design](/projects/application-quality)**
+
 ## Overview
 
 The goal of the Application Quality BB is to support the evolution of a scientific algorithm (processing workflow) from a research project to one that can be utilised in a production environment. To achieve this, the Application Quality BB provides tools to support verifying non-functional requirements - including code quality, software development best practice for open reproducible science, and optimisation through performance testing.

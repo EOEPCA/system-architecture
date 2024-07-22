@@ -1,5 +1,7 @@
 # Data Access Architecture
 
+**See also the [Detailed Data Access Design](/projects/data-access)**
+
 ## Overview
 
 Data Access are seen as a set of services that can be optionally ‘attached’ to datasets – typically those that are registered in the Resource Discovery (including Workspace), including results from Workflow execution – e.g. visualise results from OAPIP application package, or attach as a ‘service’ to openEO results.
@@ -37,7 +39,7 @@ Implementations should be provided for S3 object storage, HTTP, and file-system 
 
 See section [Data Access BB dependency on the Data Gateway][data-access-bb-usage].
 
-The implementation of the Asset Storage Driver components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-building-block] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
+The implementation of the Asset Storage Driver components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-architecture] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
 
 It is anticipated that the _Harvester_ component will use the Data Gateway to source the products that are registered in the platform services. Similarly, the Data Access BB can rely upon the Data Gateway for retrieval of the corresponding assets (using the same data provider) - thus benefitting from the consolidated solution for data provider integration.
 

@@ -1,5 +1,7 @@
 # Resource Discovery Architecture
 
+**See also the [Detailed Resource Discovery Design](/projects/resource-discovery)**
+
 ## Overview
 
 Resource Discovery provides a catalogue that maintains metadata for the resources held within a platform, and also supports platform federation by maintaining records to resources in other platforms.

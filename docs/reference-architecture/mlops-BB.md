@@ -1,5 +1,7 @@
 # MLOps Architecture
 
+**See also the [Detailed MLOps Design](/projects/mlops)**
+
 ## Overview
 
 The MLOps BB provides support services for training of machine learning models within the cloud platform. To this end the following capabilities must be provided:

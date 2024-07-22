@@ -1,5 +1,7 @@
 # Processing Architecture
 
+**See also the [Detailed Processing Design](/projects/processing)**
+
 ## Overview
 
 The Processing BB supports user analysis and processing workflows across various popular technology stacks, and across an ecosystem of federated platforms. The Processing BB is defined by a set of extensible components that allow the Processing BB implementation to be adapted for multiple processing APIs and execution engines - as illustrated in the following figure.
@@ -37,7 +39,7 @@ The Processing Engine is responsible for implementing the API in accordance with
 
 ### OAPIP Processing Engine
 
-The OAPIP Processing Engine provides an implementation of a _Processing BB_ as introduced in the [Processing Concepts][processing-concepts] section. It provides an implementation of the OGC API Processes standard – Parts 1 & 2(draft) [RD05/RD06] in conjunction with the OGC Best Practice for Application Packages [[RD18]][rd18].
+The OAPIP Processing Engine provides an implementation of the OGC API Processes standard – Parts 1 & 2(draft) [RD05/RD06] in conjunction with the OGC Best Practice for Application Packages [[RD18]][rd18].
 
 The building-block should support extensible Processing Runner implementations – noting that the current EOEPCA ADES component (ZOO-Project-DRU) provides a CWL runner (Calrissian) that executes on Kubernetes. Work has also been performed to integrate an alternative CWL Runner (TOIL) that executes on Slurm HPC.
 
@@ -50,7 +52,7 @@ The programmatic Processing Client should facilitate interaction with the OGC AP
 
 ### openEO Processing Engine
 
-The openEO Processing Engine provides an implementation of a _Processing BB_ as introduced in the [Processing Concepts][processing-concepts] section. It provides an implementation of the openEO API Specification [[RD19]][rd19], to support the remote execution of openEO Process Graphs [[RD20]][rd20].
+The openEO Processing Engine provides an implementation of the openEO API Specification [[RD19]][rd19], to support the remote execution of openEO Process Graphs [[RD20]][rd20].
 
 There is an opportunity to engineer the openEO building block in such a way that it also facilitates consumption through users of the Pangeo stack. Several measures are identified that may aid this interoperation:
 
@@ -86,7 +88,7 @@ There is a dependency between the processing workflow and the data upon which it
 
 See section [Processing Data Source dependency on the Data Gateway][processing-data-sources-usage].
 
-The implementation of the Processing Data Source components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-building-block] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
+The implementation of the Processing Data Source components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-architecture] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
 
 The Data Gateway can provide a consistent means for identifying both data provider and datasets for processing inputs – such that a given processing workflow can be ‘verified’ against specified dataset/provider combinations.
 

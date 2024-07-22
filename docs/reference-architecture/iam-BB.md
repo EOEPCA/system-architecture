@@ -1,5 +1,7 @@
 # Identity & Access Management Architecture
 
+**See also the [Detailed IAM Design](/projects/iam)**
+
 ## Overview
 
 The Identity and Access Management (IAM) BB provides user identity (authentication) and access management (request authorisation).

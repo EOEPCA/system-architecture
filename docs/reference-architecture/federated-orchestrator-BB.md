@@ -1,5 +1,7 @@
 # Federated Orchestrator Architecture
 
+**See also the [Detailed Federated Orchestrator Design](/technical/federated-orchestrator-bb)**
+
 ## Overview
 
 The Federated Orchestrator is designed to operate in an environment where cloud platforms expose their processing/analysis offering through a variety of Processing Engine technologies. The Federated Orchestrator provides a **Workflow API** through which any of the defined Processing Workflow types can be submitted for execution, and provides a homogenous interface through which workflows can be executed that exploit the services of multiple platforms using different processing engine technologies.

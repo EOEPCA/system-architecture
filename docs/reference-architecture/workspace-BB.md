@@ -1,5 +1,7 @@
 # Workspace Architecture
 
+**See also the [Detailed Workspace Design](/projects/workspace)**
+
 ## Overview
 
 The Workspace building-block provides a collection of resource management services that are scoped according to global (platform), project/group and user ownership. These services allow platform admins and users alike to exploit and maintain their owned resources in the platform.

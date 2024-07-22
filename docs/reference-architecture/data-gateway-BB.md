@@ -1,5 +1,7 @@
 # Data Gateway Architecture
 
+**See also the [Detailed Data Gateway Design](/technical/data-gateway-bb)**
+
 ## Overview
 
 The Data Gateway building block provides a consolidated and consistent capability for accessing the data offering of an extensible set of data providers and datasets.

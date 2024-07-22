@@ -1,5 +1,9 @@
 # Resource Health Architecture
 
+**See also the [Detailed Resource Health Design](/technical/resource-health-bb)**
+
+## Overview
+
 The Resource Health BB aims at supporting the platform operators and users to monitor the health of the platform resources for which they are responsible – i.e. Operators to monitor platform resources, and Users to monitor their own published resources.
 
 To this end, the Resource Health BB should offer a generalised capability that allows all types of users (operators, administrators, users, etc.) to specify and schedule checks relating to their resources of interest, to visualise the outcome of the checks, and to receive notifications according to the outcome.

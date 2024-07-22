@@ -1,5 +1,7 @@
 # Resource Registration Architecture
 
+**See also the [Detailed Resource Registration Design](/projects/resource-registration)**
+
 ## Overview
 
 Resource Registration supports the ingestion of data and its associated metadata into the platform services – including, but not limited to:
@@ -41,7 +43,7 @@ At minimum registration of data assets should be supported from the following so
 
 See section [Harvester Data Sources dependency on the Data Gateway][harvester-data-sources-usage].
 
-The implementation of the Harvester Data Source components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-building-block] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
+The implementation of the Harvester Data Source components may be partly or wholly met by the capabilities of the [**Data Gateway**][data-gateway-architecture] building block, that is designed to provide a reusable/extensible implementation that encapsulates the interface with the data providers.
 
 ## Registration into Building-blocks
 
