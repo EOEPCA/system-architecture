@@ -1,0 +1,74 @@
+@startuml Http Asset Access - Client Approach
+
+title Http Asset Access - Client Approach
+
+actor User as user
+control IAM as IAM
+queue "Processing" as ADES
+entity job as job
+participant Catalogue as cat
+database Storage as storage
+
+user -> IAM : Authenticate (OIDC)
+IAM -> user: Bearer token (JWT)
+note left
+JWT token is used
+to authenticate user
+on all subsequent requests
+end note
+
+user -> cat: STAC API Item search (for input data selection)
+cat -> cat: internal query\nfor results
+cat -> user: STAC Items matching the query
+	
+alt user wants to download/access data locally
+	user -> user: extract URL from STAC Item entry (href)
+	alt S3 link is provided
+	  user -> storage: GET short-term credentials (via Storage STS service)
+		note right
+			JWT token is used here
+		end note
+		storage -> user: temporary credentials retreived are stored internally\n(e.g. in env variables for GDAL)
+		loop for each product to download
+			user -> storage: Access/download data using GDAL (or curl)
+			note right
+				using temporary credentials
+		  end note
+		end loop
+	else HTTPS link is provided
+	  loop for each product to download
+			user -> storage: Access/download data using GDAL (or curl)
+			note right
+				JWT is included in the HTT request header
+		  end note
+	  end loop
+	end alt
+
+else user wants to process data
+  user -> ADES: Submit processing request\n(STAC is provided in input)
+  ADES -> ADES: extract URL from STAC Item entry (href),\ndetermine which storages the job needs to connect
+	loop for each storage the job needs to connect (plus for the output storage)
+	  ADES -> storage: GET short-term credentials (via Storage STS service)
+		note right
+			JWT token is used here
+		end note
+	end loop
+	ADES -> job: job is sumitted\n(temporary credentials for each project are provided)
+	job -> job: extract URL from STAC Item entry (href),\ndetermine short term credentials to use according to storage
+	loop for each product in input
+		job -> storage: Access/download data using GDAL (or curl)
+		note right
+			using temporary credentials
+			for the given storage
+		end note
+	end loop
+	storage -> job: input data
+	job -> job: generate outputs
+	job -> storage: push outputs
+		note right
+	    temporary credentials or forwarded
+			JWT token is used here
+	  end note	
+end
+
+@enduml

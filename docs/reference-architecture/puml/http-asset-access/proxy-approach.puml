@@ -1,0 +1,101 @@
+@startuml Http Asset Access - Proxy Approach
+
+title Http Asset Access - Proxy Approach
+
+actor User as user
+control IAM as IAM
+queue "Processing" as ADES
+entity job as job
+control "Data Gateway\n(STAC server mode)" as dgw
+participant Catalogue as cat
+database Storage as storage
+
+user -> IAM : Authenticate (OIDC)
+IAM -> user: Bearer token (JWT)
+note left
+JWT token is used
+to authenticate user
+on all subsequent requests
+end note
+
+user -> dgw: STAC API Item search (for input data selection)
+dgw -> cat: forwarded query
+note right
+			JWT bearer token is
+			forwarded to get private
+			collections access
+end note
+cat -> dgw: STAC items matching query
+dgw -> dgw: rewrite STAC items' HREF\nto point to data gateway
+dgw -> user: STAC items
+
+alt user wants to download/access data locally
+	user -> user: extract URL from STAC Item entry (href)
+	note right
+		this link will always be
+		an HTTPs link to the
+		data gateway service
+	end note
+	loop for each product to access
+		user -> dgw: access product (via GDAL or curl)
+		note right
+			JWT bearer token is
+			included here in HTTPs
+			request header
+		end note
+		dgw -> storage: get data
+		note right
+			according to storage, temporary
+			credentials can be created from
+			the user JWT or internal platform
+			credentials can be used
+		end note
+		storage -> dgw: data
+		dgw -> user: data
+	end loop
+	
+else user wants to process data
+  user -> ADES: Submit processing request\n(STAC is provided in input)
+  ADES -> job: job is sumitted (JWT token is forwarded)
+	job -> job: extract URL from STAC Item entry (href)
+	note right
+		this link will always be
+		an HTTPs link to the
+		data gateway service
+	end note
+	loop for each product to access
+		job -> dgw: access product (via GDAL or curl)
+		note right
+			JWT bearer token is
+			included here in HTTPs
+			request header
+		end note
+		dgw -> storage: get data
+		note right
+			according to storage, temporary
+			credentials can be created from
+			the user JWT or internal platform
+			credentials can be used
+		end note
+		storage -> dgw: data
+		dgw -> job: data
+	end loop
+	job -> job: generate outputs
+	job -> dgw: push outputs (data and metadata)
+		note right
+	    JWT token is used here,
+			a STAC representation
+			of the output would be
+			probably needed
+	  end note
+	dgw -> storage: push output data
+		note right
+			according to storage, temporary
+			credentials can be created from
+			the user JWT or internal platform
+			credentials can be used
+		end note
+	dgw --> cat: (optional) the STAC outputs are\npushed into the catalogue  
+end
+
+@enduml

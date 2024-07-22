@@ -1,0 +1,35 @@
+@startuml Http Asset Access - Client Workflow Approach
+
+title Http Asset Access - Client Workflow Approach
+
+@startuml
+
+queue "Processing" as ADES
+entity job as job
+database Storage as storage
+
+ADES -> job: job is sumitted (JWT token is forwarded)
+job -> job: extract URL from STAC Item entry (href)
+alt S3 link is provided
+	job -> storage: GET short-term credentials (via Storage STS service)
+	note right
+		forwarded JWT token is used here
+	end note
+	storage -> job: temporary credentials retreived are stored internally\n(e.g. in env variables for GDAL)
+	loop for each product to download
+		job -> storage: Access/download data using GDAL (or curl)
+		note right
+			using temporary credentials
+		end note
+	end loop
+else HTTPS link is provided
+	loop for each product to download
+		job -> storage: Access/download data using GDAL (or curl)
+		note right
+			forwarded JWT is included
+			in the HTT request header
+		end note
+	end loop
+end alt
+
+@enduml
