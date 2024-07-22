@@ -1,4 +1,4 @@
-# MLOps Building Block
+# MLOps Architecture
 
 ## Overview
 

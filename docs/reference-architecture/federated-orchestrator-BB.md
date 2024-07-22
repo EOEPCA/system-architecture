@@ -1,4 +1,4 @@
-# Federated Orchestrator Building Block
+# Federated Orchestrator Architecture
 
 ## Overview
 

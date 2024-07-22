@@ -1,4 +1,4 @@
-# Resource Registration Building Block
+# Resource Registration Architecture
 
 ## Overview
 

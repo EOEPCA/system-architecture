@@ -1,4 +1,4 @@
-# Data Gateway Building Block
+# Data Gateway Architecture
 
 ## Overview
 

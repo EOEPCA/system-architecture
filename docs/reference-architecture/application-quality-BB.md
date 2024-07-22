@@ -1,4 +1,4 @@
-# Application Quality Building Block
+# Application Quality Architecture
 
 ## Overview
 

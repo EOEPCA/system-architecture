@@ -1,4 +1,4 @@
-# Datacube Access Building Block
+# Datacube Access Architecture
 
 ## Overview
 

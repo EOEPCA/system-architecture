@@ -1,4 +1,4 @@
-# Workspace Building Block
+# Workspace Architecture
 
 ## Overview
 

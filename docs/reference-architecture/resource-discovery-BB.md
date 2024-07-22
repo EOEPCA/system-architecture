@@ -1,4 +1,4 @@
-# Resource Discovery Building Block
+# Resource Discovery Architecture
 
 ## Overview
 

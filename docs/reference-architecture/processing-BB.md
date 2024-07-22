@@ -1,4 +1,4 @@
-# Processing Building Block
+# Processing Architecture
 
 ## Overview
 

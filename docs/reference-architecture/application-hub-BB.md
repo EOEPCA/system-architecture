@@ -1,4 +1,4 @@
-# Application Hub Building Block
+# Application Hub Architecture
 
 The Application Hub is a general capability through which web-enabled interactive applications can be hosted and exposed as web applications. The application framework acts as a web-facing entrypoint through which an extensible set of applications are exposed – extensible through custom configuration.
 
