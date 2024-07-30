@@ -26,7 +26,14 @@ note right
 			collections access
 end note
 cat -> dgw: STAC items matching query
-dgw -> dgw: rewrite STAC items' HREF\nto point to data gateway
+dgw -> dgw: rewrite STAC items' HREF\nto point to data gateway\npre-signed URLs
+note right
+			data gateway pre-signed URLs
+			may include directly the JWT
+			bearer token in a ?auth=
+			field or a internal token
+end note
+
 dgw -> user: STAC items
 
 alt user wants to download/access data locally
@@ -39,9 +46,9 @@ alt user wants to download/access data locally
 	loop for each product to access
 		user -> dgw: access product (via GDAL or curl)
 		note right
-			JWT bearer token is
-			included here in HTTPs
-			request header
+			the pre-signed URL is used
+			to recognize the user in
+			the data gateway
 		end note
 		dgw -> storage: get data
 		note right
@@ -56,7 +63,7 @@ alt user wants to download/access data locally
 	
 else user wants to process data
   user -> ADES: Submit processing request\n(STAC is provided in input)
-  ADES -> job: job is sumitted (JWT token is forwarded)
+  ADES -> job: job is sumitted
 	job -> job: extract URL from STAC Item entry (href)
 	note right
 		this link will always be
@@ -66,9 +73,9 @@ else user wants to process data
 	loop for each product to access
 		job -> dgw: access product (via GDAL or curl)
 		note right
-			JWT bearer token is
-			included here in HTTPs
-			request header
+			the pre-signed URL is used
+			to recognize the user in
+			the data gateway
 		end note
 		dgw -> storage: get data
 		note right
@@ -83,10 +90,8 @@ else user wants to process data
 	job -> job: generate outputs
 	job -> dgw: push outputs (data and metadata)
 		note right
-	    JWT token is used here,
-			a STAC representation
-			of the output would be
-			probably needed
+			should we create a pre-signed URL
+			for the outputs also?
 	  end note
 	dgw -> storage: push output data
 		note right
