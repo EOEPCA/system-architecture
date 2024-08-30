@@ -1,9 +1,3 @@
-img.centered {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .green-text {
   color: green;
 }
@@ -22,4 +16,10 @@ img.centered {
 
 .highlight-yellow {
   background-color: yellow;
+}
+
+img.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
