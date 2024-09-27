@@ -1,4 +1,4 @@
-# Notification & Automation Building Block
+# Notification & Automation Architecture
 
 ## Overview
 

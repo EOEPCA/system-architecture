@@ -1,4 +1,6 @@
-# Data Gateway Building Block
+# Data Gateway Architecture
+
+**See also the [Detailed Data Gateway Design](/technical/data-gateway-bb)**
 
 ## Overview
 

@@ -1,8 +1,10 @@
-# Identity & Access Management Building Block
+# Identity & Access Management Architecture
+
+**See also the [Detailed IAM Design](/projects/iam)**
 
 ## Overview
 
-The Identity and Access Management BB provides user identity (authentication) and access management (request authorisation).
+The Identity and Access Management (IAM) BB provides user identity (authentication) and access management (request authorisation).
 
 The Identity & Access Management BB design should follow a modular approach through components that implement specific capabilities:
 

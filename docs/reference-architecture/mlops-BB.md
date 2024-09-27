@@ -1,4 +1,6 @@
-# MLOps Building Block
+# MLOps Architecture
+
+**See also the [Detailed MLOps Design](/projects/mlops)**
 
 ## Overview
 

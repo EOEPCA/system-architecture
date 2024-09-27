@@ -1,15 +1,3 @@
-img.centered {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-img.uml {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .green-text {
   color: green;
 }
@@ -28,4 +16,16 @@ img.uml {
 
 .highlight-yellow {
   background-color: yellow;
+}
+
+img.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img.uml {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

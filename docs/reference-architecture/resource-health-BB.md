@@ -1,4 +1,8 @@
-# Resource Health Building Block
+# Resource Health Architecture
+
+**See also the [Detailed Resource Health Design](/technical/resource-health-bb)**
+
+## Overview
 
 The Resource Health BB aims at supporting the platform operators and users to monitor the health of the platform resources for which they are responsible – i.e. Operators to monitor platform resources, and Users to monitor their own published resources.
 

@@ -1,4 +1,6 @@
-# Resource Discovery Building Block
+# Resource Discovery Architecture
+
+**See also the [Detailed Resource Discovery Design](/projects/resource-discovery)**
 
 ## Overview
 

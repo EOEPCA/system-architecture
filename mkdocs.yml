@@ -9,22 +9,19 @@ nav:
     - Introduction: index.md
     - High-level Architecture: reference-architecture/high-level-architecture.md
     - Concepts:
-      - Processing: reference-architecture/processing-concepts.md
       - Resource Management: reference-architecture/resource-management-concepts.md
       - Reproducible Science: reference-architecture/reproducible-science.md
       - reference-architecture/http-asset-access.md
     - Building Blocks (Platform):
-      - Processing:
-        - OAPIP (OGC API Processes): reference-architecture/oapip-pe.md
-        - openEO: reference-architecture/openeo-pe.md
-      - Workspace: reference-architecture/workspace-BB.md
       - Resource Discovery: reference-architecture/resource-discovery-BB.md
+      - Resource Registration: reference-architecture/resource-registration-BB.md
       - Data Access: reference-architecture/data-access-BB.md
       - Datacube Access: reference-architecture/datacube-access-BB.md
-      - Resource Registration: reference-architecture/resource-registration-BB.md
+      - Workspace: reference-architecture/workspace-BB.md
+      - Processing: reference-architecture/processing-BB.md
       - MLOps: reference-architecture/mlops-BB.md
-      - Notification & Automation: reference-architecture/notification-automation-BB.md
       - Resource Health: reference-architecture/resource-health-BB.md
+      - Notification & Automation: reference-architecture/notification-automation-BB.md
     - Building Blocks (Federation):
       - Data Gateway: reference-architecture/data-gateway-BB.md
       - Federated Orchestrator: reference-architecture/federated-orchestrator-BB.md
@@ -50,6 +47,7 @@ theme:
   favicon: img/favicon.ico
   features:
     # Navigation
+    - navigation.footer
     - navigation.instant
     - navigation.tracking
     - navigation.tabs

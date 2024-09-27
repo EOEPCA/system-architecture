@@ -1,4 +1,6 @@
-# Datacube Access Building Block
+# Datacube Access Architecture
+
+**See also the [Detailed Datacube Access Design](/projects/datacube-access)**
 
 ## Overview
 

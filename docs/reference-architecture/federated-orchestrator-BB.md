@@ -1,4 +1,6 @@
-# Federated Orchestrator Building Block
+# Federated Orchestrator Architecture
+
+**See also the [Detailed Federated Orchestrator Design](/technical/federated-orchestrator-bb)**
 
 ## Overview
 

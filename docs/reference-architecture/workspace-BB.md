@@ -1,4 +1,6 @@
-# Workspace Building Block
+# Workspace Architecture
+
+**See also the [Detailed Workspace Design](/projects/workspace)**
 
 ## Overview
 

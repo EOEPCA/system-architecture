@@ -1,4 +1,6 @@
-# Application Quality Building Block
+# Application Quality Architecture
+
+**See also the [Detailed Application Quality Design](/projects/application-quality)**
 
 ## Overview
 
