@@ -1,5 +1,7 @@
 # Application Propogation Environment (APEx)
 
+For context, see the [APEx Project Design Document](https://bramjanssen.quarto.pub/apex-design/).
+
 ## Overview
 
 This section presents the contribution of the EOEPCA building-blocks to the APEx architecture, as illustrated below…
