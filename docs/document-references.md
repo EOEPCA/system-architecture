@@ -118,7 +118,7 @@ OGC OpenSearch:
 
 ### **RD27**
 
-[[DRAFT] CEOS Jupyter Notebooks Best Practice](https://docs.google.com/document/d/1b9HMAz1SewUjP7OTc6Hgez62Vn3BLj0Q-mPyhpZvQ18){:target="_blank"}
+[CEOS Jupyter Notebooks Best Practice v1.1](https://ceos.org/document_management/Working_Groups/WGISS/Documents/WGISS%20Best%20Practices/CEOS_JupterNotebooks_Best%20Practice_v1.1.pdf){:target="_blank"}
 
 ### **RD28**
 
