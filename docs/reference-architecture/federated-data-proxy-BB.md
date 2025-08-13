@@ -106,7 +106,9 @@ In addition to controlling access, the Federated Data Proxy can faciliate the us
 
 ### Object Storage Access
 
-In the case that assets are delivered from protected object storage, the Federated Data Proxy can generate signed URLs that allow the user to access the data directly, without the user needing to manage object storage credentials or tokens. This is particularly useful for large datasets where direct access is preferred.
+In the case that assets are delivered from protected object storage, the Federated Data Proxy can generate pre-signed URLs that allow the user to access the data directly, without the user needing to manage object storage credentials or tokens. This is particularly useful for large datasets where direct access is preferred.
+
+![Object Storage Access](./diagrams/fdp-object-storage-access.drawio.png){: .centered}
 
 The user's retrieval request to the Federated Data Proxy will be authenticated and authorised against the platform's IAM system. If the user has the necessary permissions, the Federated Data Proxy will generate a pre-signed URL for the requested asset, which can then be used to access the data directly from the object storage.
 
