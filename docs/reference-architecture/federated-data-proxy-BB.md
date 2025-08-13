@@ -58,9 +58,34 @@ Cache retention policies should be configurable per dataset, including:
 
 ## Asynchronous Retrieval
 
-> Use of `Retry-After` HTTP header.
->
-> Clients must be able to handle this - e.g. GDAL - check this is supported
+Some data retrieval requests cannot be satisfied immediately - for example, if the data is not available in the online cache and must be retrieved from an upstream provider, or from a long-term archive, which could take a number of minutes. In such cases, the Federated Data Proxy needs an approach to handle these requests asynchronously, in such a way that is supported by typical clients and does not block the user experience.
+
+In particular, the approach should be compatible with clients that are commonly used in the geospatial domain, such as GDAL. The Federated Data Proxy should be able to handle asynchronous requests in a way that is compatible with the client libraries and tools that users are likely to employ.
+
+### Approach 1
+
+The simplest approach would take this flow:
+
+* The Federated Data Proxy accepts the request and immediately returns a `202 Accepted` response indicating that the request has been accepted and is being processed
+* The response includes a `Retry-After` header indicating how long the client should wait before retrying the request
+* The client can then retry the request after the specified time, at which point the Federated Data Proxy will either return the requested data if it is available, or continue to return a `202 Accepted` response if the data is still being processed
+* The client can continue to retry until the data is available, or a maximum number of retries is reached, or another final status is returned
+
+This approach keeps things simple, in that it uses the original request URL for subsequent retries, and does not require the client to manage a separate status endpoint - which may be easier for clients to handle. It does, however, make it harder for the server to distinguish between the initial request and subsequent retries. The server may have to implement logic for idempotency or request fingerprinting to ensure that it does not process the same request multiple times.
+
+### Approach 2
+
+A more robust approach would involve the use of a status endpoint:
+
+* The Federated Data Proxy accepts the request and immediately returns a `202 Accepted` response indicating that the request has been accepted and is being processed
+* The response includes a `Location` header pointing to a status endpoint where the client can check the status of the request
+* The Federated Data Proxy can also include a `Retry-After` header in the response to indicate how long the client should wait before checking the status again
+* The client can poll this status endpoint to check if the data is ready
+* Once the data is available, the status endpoint will indicate that the data is ready, and the client can then retrieve the data from a provided URL
+
+Whilst this approach is more complex, it provides a clearer separation between the request and the status of the request. It allows the server to manage the state of the request more effectively, and provides a clear mechanism for the client to check the status of the request without having to retry the original request.
+
+However, it does require the client to implement logic to handle the status endpoint, which would most likely not be supported by typical geospatial clients and libraries.
 
 ## QoS Brokering [possible requirement]
 
@@ -72,6 +97,20 @@ In response, the Federated Data Proxy could broker each request through a Qualit
 * Rate limits (non-cached) - number of 'cache miss' requests per time period
 * Bandwidth limits - data volume per time period
 * Bandwidth limits (non-cached) - data volume requiring upstream retrieval per time period
+
+## IAM Integration
+
+The Federated Data Proxy should integrate with the platform's Identity and Access Management (IAM) system to ensure that data access is controlled according to the user's permissions.
+
+In addition to controlling access, the Federated Data Proxy can faciliate the user to access protected data resources within the scope of their permissions.
+
+### Object Storage Access
+
+In the case that assets are delivered from protected object storage, the Federated Data Proxy can generate signed URLs that allow the user to access the data directly, without the user needing to manage object storage credentials or tokens. This is particularly useful for large datasets where direct access is preferred.
+
+The user's retrieval request to the Federated Data Proxy will be authenticated and authorised against the platform's IAM system. If the user has the necessary permissions, the Federated Data Proxy will generate a pre-signed URL for the requested asset, which can then be used to access the data directly from the object storage.
+
+This approach ensures that data access is secure and controlled, while also providing a seamless user experience.
 
 ## Possible Usage of Data Access Gateway BB
 
