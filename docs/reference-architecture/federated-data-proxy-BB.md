@@ -4,17 +4,22 @@
 
 The Federated Data Proxy allows a platform to serve data from multiple (internal and external) providers, in such a way that is transparent to the service end-users.
 
-The platform offers an Inventory (STAC Catalogue) to its users that enumerates all the available (online and offline) datasets, including those that are hosted in external data providers. In this case there are a range of approaches for handling access to the offline/external data, that must be taken into account:
+The platform offers an Inventory (STAC Catalogue) to its users that enumerates all the available (online and offline) datasets, including those that are hosted in external data providers.
 
-1. Data is routinely harvested and re-hosted
-2. Selected data is routinely harvested according to a criteria<br>
-   _e.g. rolling last N months data over a geographic region_
-3. Data is retrieved on-demand
-4. Data is ordered for subsequent asynchronous access<br>
-   _This includes requests for data from Long-term Archive_
-5. On-demand data is maintained in a online cache
+The platform data offering thus comprises:
 
-The Federated Data Proxy offers a single point of access that transparanerly satisfies each of these data management approaches.
+* Locally managed data that is available online
+* Locally managed data that has been long-term archived, and so is available offline
+* External data that is routinely harvested and re-hosted<br>
+  _Either whole datasets, or selected data according to a criteria_<br>
+  _E.g. rolling last N months data over a geographic region_
+* Data that is retrieved on-demand - including:
+    * data in the long-term archive
+    * data that is not routinely harvested and re-hosted
+    * data that is ordered for subsequent asynchronous access
+* Online cache for data that has been requested on-demand
+
+The Federated Data Proxy offers a single point of access that transparently supports retrieval covering all of these data management approaches.
 
 ## Approach
 
