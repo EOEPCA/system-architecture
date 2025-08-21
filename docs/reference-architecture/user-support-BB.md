@@ -1,20 +1,5 @@
 # User Support BB Architecture
 
-> Notes...
-> 
-> * Client Lib + CLI + EOEPCA-UI
->     * Modular design - i.e. plugin support for each BB
->         * with coherent submodules - auth, catalog, processing, workspace, etc.
-> 
-> * User client library (similar to terrapi)
->     * Make it easy to work with EOEPCA services for authentication, start/monitor processing jobs, start/monitor data registrations, create > workspaces, upload files to workspace
->     * Support for public/private STAC collections
->     * Device flow for authentication
-> 
-> * CLI - using client library
-> 
-> * User Portal
-
 ## Overview
 
 The User Support BB helps to drive platform adoption by providing a user-friendly interface and tools for users to interact with EOEPCA services. The BB comprises the following parts:
