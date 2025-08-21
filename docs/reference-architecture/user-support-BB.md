@@ -28,11 +28,99 @@ The User Support BB helps to drive platform adoption by providing a user-friendl
 
 ## Python Client Library
 
-TBD
+The Python Client Library provides programmatic access to the capabilities of the building blocks. This is designed to provide a conventient semantic that simplies use of the platform services, and so encourages uptake - for example, from Jupyter notebooks.
+
+The Python Client should adopt a modular architecture, with plugins that reflect the capabilities of the building blocks.
+
+The following modules are anticipated:
+
+* `connect`<br>
+  _Authenticate with a given platform and discover its capabilities and service endpoints_<br>
+  _Including support for OIDC Device Flow - suitable for non-browser clients_
+* `catalog`<br>
+  _Search for data and resources - retrieve metadata_<br>
+  _Includes support for public/private collections_
+* `harvest`<br>
+  _Configure, initiate and manage data collection harvesting_
+* `process`<br>
+  _Discover, deploy and execute processing - with associated job management and results handling_
+* `workspace`<br>
+  _Administration - Create and manage workspaces_<br>
+  _User - interface with workspace storage and services_
+* `automate`<br>
+  _Create and manage automated platform tasks - triggers and scheduled_
+* etc...
+
+> The `connect` semantic should expect a 'standard' platform discovery endpoint, which bootstraps the clients relationship with the platform. The discovery information provides the client with sufficient details to authenticate the user, and to know the endpoints for available services.
+>
+> This _Discovery_ topic is under current discussion in this ['Consolidated API Tree' Technical Note](https://docs.google.com/document/d/1WVOxaX_Y5hWBD_2eA0xmmszooHqyffhVu10XhAq4xrs).
+
+Whilst the approach is modular, the modules should nevertheless be designed to work together in combination - as illustrated by the following pseudocode...
+
+```python
+import eoepca
+connection = eoepca.connect("myplatform.com").authentication_oidc()
+
+capabilities = connection.capabilities()
+print(capabilities)
+>> [ { Capability: 'auth', Url: 'https://myplatform.com/auth' , Description: 'xxx' },
+>>   { Capability: 'catalog', Url: 'https://myplatform.com/catalog' , Description: 'xxx' },
+>>   { Capability: 'oapip', Url: 'https://myplatform.com/oapip' , Description: 'xxx' },
+>>   { Capability: 'openeo', Url: 'https://myplatform.com/openeo' , Description: 'xxx' },
+>>   { Capability: 'workspace', Url: 'https://myplatform.com/workspace' , Description: 'xxx' } ,... ]
+
+catalog = connection.catalog()
+collections = catalog.collections()
+print(collections)
+>> [ { id: 'landsat-8-l1', Description: 'xxx', ... },
+>>   { id: 'S2MSI2A', Description: 'xxx', ... }, ... ]
+
+collection = collections['landsat-8-l1']
+extent = { "bbox": [ -0.489, 51.28, 0.236, 51.686 ], "time": [ "2018-07-08", "2018-07-09" ] }
+data_of_interest = collection.search(extent)
+
+ogc_processes = connection.process.oapip()
+processes = ogc_processes.list_processes()
+print(processes)
+>> [ { Process: 'band_math' , Description: 'xxx' } ,... ]
+
+process = processes['band_math']
+print(process)
+>> Process: 'band_math' , Description: 'xxx', ...
+
+inputs = process.inputs_schema
+print(inputs)
+>> {'input_stac':'<HTTP point to STAC>','band_math_operation':'<string>'}
+
+inputs['input_stac'] = data_of_interest[0]
+inputs['band_math'] = 'B1*200+15'
+
+job = process.execute(inputs)
+job.wait_to_complete()
+
+print(job.results)
+>> {'output_stac':'<HTTP point to STAC>'}
+```
 
 ## Command Line Interface (CLI)
 
-TBD
+The EOEPCA CLI provides a wrapper around the Python Client - offering a client for EOEPCA services that can be used in scripts and on the command-line.
+
+The CLI should organise its offering using subcommands that align to the modularity of the Python Client. Thus, each capability can be introduced as a plugin that contributes the python module and associated subcommand for the EOEPCA CLI.
+
+```bash
+eoepca <subcommand> <options>
+```
+
+The `<subcommand>` should match the associated python client module - for example...
+
+```bash
+eoepca connect --server "develop.eoepca.org"
+eoepca catalog --list-collections
+etc.
+```
+
+The CLI should be designed such that a 'session' can be established with a platform - for example, subsequent commands inheriting the authentication of previous steps. This allows commands to be used in sequence.
 
 ## User Portal (UI)
 
