@@ -1,16 +1,18 @@
 # Http Asset Access
 
+> Note that this may now be superseded by the design concepts described under [Federated Data Proxy](https://eoepca.readthedocs.io/projects/architecture/en/federated-data-proxy/reference-architecture/federated-data-proxy-BB/) - see branch [federated-data-proxy-BB](https://github.com/EOEPCA/system-architecture/blob/feature/federated-data-proxy/docs/reference-architecture/federated-data-proxy-BB.md).
+
 ## Introduction
 
-This section provides a discussion of the possible approaches for access to data assets (held in cloud storage) that have been discovered via STAC catalogue.
+This section provides a discussion of the possible approaches for access to data assets (held in cloud storage) that have been discovered via STAC catalogue. STAC items include hrefs through which the assets can be accessed and consumed. We want an approach in which these hrefs can be provided as http urls that can be easily consumed by 'simple' clients - i.e. without complex IAM flows and avoiding need for an S3-native client.
 
 The approach must satisfy some basic needs expressed by utilisation domains, and we can anticipate being needed by a typical Catalog/Data Provider:
 
 * **_Core Requirements:_**
-    * Http download service - transparent to underlying storage
-    * Controlled (authorized) access
-    * Compatible with simple clients, including Authz, such as GDAL
-    * Accessible to processing workflows with federated inputs (multiple catalogues and data storages)
+    * Asset hrefs provided as http download urls - transparent to underlying storage
+    * Support for controlled (authorized) access to assets
+    * Compatible with simple clients (including controlled access) such as GDAL
+    * Accessible to processing workflows with federated inputs - i.e. with input assets retreived from multiple catalogues and data storages
 * **_Additional:_**
     * Per-user rate limiting, to ensure that all users have equal access
 
