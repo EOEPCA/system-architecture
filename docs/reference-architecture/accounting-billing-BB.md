@@ -1,7 +1,5 @@
 # Accounting and Billing BB Architecture
 
-## Overview
-
 The Accounting and Billing Building Block collects, generates and stores resource use data relevant to billing. Drawing from the EODH implementation, it consists of several related microservices linked by messaging - a central Accounting Service and multiple Collectors.
 
 The system comprises:
@@ -9,8 +7,6 @@ The system comprises:
 - **Resource Collectors**: Microservices that collect resource use data
 - **Messaging System**: Asynchronous persistent messaging (eg Pulsar, Kafka)
 - **Database**: Stores billing events, products and prices
-
-### Data Model
 
 **Billing Events** record resource consumption by a particular workspace over a specific time period (typically 5 minutes, 1 hour or 1 day) for a particular product or resource. Each event has a UUID, and messages with duplicate UUIDs are ignored. Collectors generate UUIDs based on the time period, workspace and product combination to prevent duplication.
 
@@ -65,7 +61,7 @@ The system uses messaging with defined schemas to ensure compatibility. Key feat
 
 Collectors generate UUIDs deterministically based on the time period, workspace and product, preventing duplicates without requiring complex coordination between services.
 
-## Data Flow
+## Flow
 
 The typical flow through the system:
 
