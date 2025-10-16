@@ -1,81 +1,81 @@
 # Accounting and Billing BB Architecture
 
-The Accounting and Billing Building Block collects, generates and stores resource use data relevant to billing. Based on the EODH implementation, it consists of several microservices connected by messaging - a central Accounting Service and multiple Collectors.
+The Accounting and Billing Building Block collects resource usage data and prepares it for billing. Based on the EODH implementation, it's built around a central Accounting Service and multiple Collectors, all connected via messaging.
 
-The system includes:
-- **Central Accounting Service**: Manages product and price settings, serves accounting data to users
-- **Resource Collectors**: Microservices that collect resource use data
-- **Messaging System**: Asynchronous persistent messaging (e.g., Pulsar, Kafka)
-- **Database**: Stores billing events, products and prices
+Main components:
+- **Central Accounting Service** - handles product/price config and serves accounting data
+- **Resource Collectors** - microservices that collect usage data from different sources
+- **Messaging System** - async persistent messaging (Pulsar, Kafka, etc.)
+- **Database** - stores billing events, products and prices
 
-**Billing Events** record resource consumption by a workspace over a time period (typically 5 minutes, 1 hour, or 1 day) for a product. Each event has a UUID and duplicate UUIDs are ignored. Collectors generate UUIDs from the time period, workspace and product to prevent duplication.
+**Billing Events**: capture how much of a product a workspace consumed during a time window (usually 5 minutes/1 hour/1 day). Each event gets a UUID and duplicates are ignored. Collectors generate these UUIDs from the time period + workspace + product, which prevents duplication.
 
-**Resource Consumption Rate Samples** are point-in-time samples of the rate at which a workspace consumes a product. The Ingester generates Billing Events from these samples via linear interpolation to hourly boundaries - but only for storage. Other products generate exact Billing Events directly through Collectors.
+**Resource Consumption Rate Samples**: are point-in-time snapshots of consumption rate. The Ingester converts these into Billing Events using linear interpolation to hourly boundaries - but this only happens for storage metrics. Everything else goes straight to exact Billing Events via Collectors.
 
-**Products** consist of an SKU, a name and units for measuring consumption. **Prices** specify the cost per unit of a product between dates.
+**Products**: have an SKU, name and units. **Prices** define cost per unit for a date range.
 
 ## Central Accounting Service
 
-This consists of two services sharing a database and codebase - the API service and the Ingester.
+Two services share a database and codebase: the API service and the Ingester.
 
 ### API Service
 
-The API service exposes endpoints with different authentication requirements:
-- `/api/accounting/prices` and `/api/accounting/skus` - no authentication required
-- `/api/workspaces/{workspace}/accounting/` - requires workspace ownership or membership
+Exposes endpoints with different auth requirements:
+- `/api/accounting/prices` and `/api/accounting/skus` - public, no auth
+- `/api/workspaces/{workspace}/accounting/` - need workspace ownership or membership
 
-The API Service continues to serve existing data if the Ingester is unavailable, though new data won't be processed until it's restored.
+If the Ingester goes down, the API keeps serving existing data. New data won't get processed until the Ingester comes back.
 
 ### Ingester
 
-The Ingester performs several functions:
-- Reads consumption data from messaging topics
-- Performs UUID-based deduplication
-- Generates Billing Events from Resource Consumption Rate Samples through linear interpolation to hourly boundaries (storage metrics only)
-- Stores events in the database
+Does a few things:
+- Reads consumption data from message topics
+- Deduplicates using UUIDs
+- Converts Resource Consumption Rate Samples into Billing Events (storage only - uses linear interpolation to hour boundaries)
+- Writes events to the database
 
-The Ingester depends on Collectors to send data, whilst Collectors depend on the Ingester to store it. Asynchronous persistent messaging.
+The Ingester needs Collectors to send data. Collectors need the Ingester to store it. The async messaging between them handles this circular dependency.
 
 ## Resource Collectors
 
-Various microservices gather resource use data about workspaces:
+Different microservices pull usage data from different sources:
 
 ### Compute Collector
-Gathers CPU and memory use data about workspace namespaces. When restarted, it can recover from 1 hour before its start time, relying on UUID-based deduplication at the Ingester to prevent double-counting.
+Tracks CPU and memory usage for workspace namespaces. After a restart, it can backfill data from up to 1 hour before it came back online. UUID deduplication at the Ingester prevents double-counting.
 
 ### Storage Collectors
-Multiple collectors handle different storage types:
+We have multiple collectors for different storage types:
 
-**Object Storage Collector** - Samples storage use and processes access logs to track API calls and bandwidth  
-**Block Storage Collector** - Monitors persistent volume use (implementation varies)
+**Object Storage Collector** - samples storage usage and parses access logs for API calls and bandwidth  
+**Block Storage Collector** - monitors persistent volumes (implementation depends on your setup)
 
 ### Data Transfer Collector
-Reads and processes logs to generate bandwidth consumption events for HTTPS downloads from workspace domain names.
+Parses logs to generate bandwidth events for HTTPS downloads from workspace domains.
 
 ## Messaging Architecture
 
-The system uses messaging with defined schemas to ensure compatibility. Key features include:
-- Separate topics for different event types
+The messaging layer uses defined schemas for compatibility. Key bits:
+- Different topics for different event types
 - UUID-based deduplication
-- Persistent messaging to handle component downtime
+- Persistent messaging so downtime doesn't lose data
 
-Collectors generate UUIDs deterministically based on the time period, workspace and product, preventing duplicates without requiring complex coordination between services.
+Collectors generate UUIDs deterministically (time period + workspace + product), so there's no duplicate coordination needed between services.
 
 ## Flow
 
-The typical flow through the system:
+Here's how data moves through the system:
 
-1. **Collection**: Collectors gather metrics from various sources
-2. **Messaging**: Send Billing Events or Resource Consumption Rate Samples to appropriate topics
-3. **Ingestion**: Ingester processes messages and applies deduplication
-4. **Storage**: Billing Events stored in database
-5. **Serving**: API queries database for accounting data
+1. **Collection** - Collectors gather metrics
+2. **Messaging** - Send Billing Events or Resource Consumption Rate Samples to topics
+3. **Ingestion** - Ingester processes messages and deduplicates
+4. **Storage** - Billing Events go into the database
+5. **Serving** - API queries the database
 
-Storage metrics follow a slightly different path - Collectors send samples, which the Ingester interpolates to hour boundaries before generating Billing Events. Other metrics generate exact Billing Events directly.
+Storage metrics work slightly differently: Collectors send samples, Ingester interpolates to hour boundaries, then generates Billing Events. Everything else skips the interpolation step.
 
 ## Configuration
 
-Products and prices are configured via YAML configuration files:
+Products and prices come from YAML config files:
 
 ```yaml
 items:
@@ -88,15 +88,15 @@ prices:
     price: 0.0000012
 ```
 
-The SKU must match the identifier used by billing collectors. The `valid_from` field determines when new prices take effect - historical consumption retains its original pricing even if bills haven't been issued yet.
+The SKU has to match what the billing collectors use. The `valid_from` date controls when new prices. Historical consumption keeps its original pricing even if you haven't generated bills yet.
 
 ## Integration Points
 
-The Building Block integrates with several systems:
+This building block connects to:
 
-* **IAM BB/Workspace BB**: Authentication and workspace information
-* **Resource Health**: Prometheus or equivalent for metrics collection  
-* **Log Processing**: Systems like Athena for analysing access logs (Loki could be an alternative)
-* **Storage**: Object storage, block storage
+* **IAM BB/Workspace BB** - auth and workspace info
+* **Resource Health** - Prometheus or similar for metrics
+* **Log Processing** - systems like Athena for log analysis (Loki may work too?)
+* **Storage** - object storage, block storage systems
 
-In federated environments, the system could support cross-platform billing event exchange and cost reconciliation.
+In federated setups, you could extend this to handle cross-platform billing event exchange and cost reconciliation.
