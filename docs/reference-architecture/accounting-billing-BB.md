@@ -1,5 +1,7 @@
 # Accounting and Billing BB Architecture
 
+> This is only a potential architecture of how this could work based on how the Earth Observation Data Hub (EODH) does it.
+
 The Accounting and Billing Building Block collects resource usage data and prepares it for billing. Based on the EODH implementation, it's built around a central Accounting Service and multiple Collectors, all connected via messaging.
 
 Main components:
@@ -8,7 +10,7 @@ Main components:
 - **Messaging System** - async persistent messaging (Pulsar, Kafka, etc.)
 - **Database** - stores billing events, products and prices
 
-**Billing Events**: capture how much of a product a workspace consumed during a time window (usually 5 minutes/1 hour/1 day). Each event gets a UUID and duplicates are ignored. Collectors generate these UUIDs from the time period + workspace + product, which prevents duplication.
+**Billing Events**: capture how much of a product a workspace consumed during a time window (usually 5 minutes/1 hour/1 day). Each event gets a UUID and duplicates are ignored. Collectors generate these UUIDs from the time period + workspace + product.
 
 **Resource Consumption Rate Samples**: are point-in-time snapshots of consumption rate. The Ingester converts these into Billing Events using linear interpolation to hourly boundaries - but this only happens for storage metrics. Everything else goes straight to exact Billing Events via Collectors.
 
@@ -62,8 +64,6 @@ The messaging layer uses defined schemas for compatibility. Key bits:
 Collectors generate UUIDs deterministically (time period + workspace + product), so there's no duplicate coordination needed between services.
 
 ## Flow
-
-Here's how data moves through the system:
 
 1. **Collection** - Collectors gather metrics
 2. **Messaging** - Send Billing Events or Resource Consumption Rate Samples to topics
