@@ -1,18 +1,18 @@
 # Accounting and Billing BB Architecture
 
-The Accounting and Billing Building Block collects, generates and stores resource use data relevant to billing. Drawing from the EODH implementation, it consists of several related microservices linked by messaging - a central Accounting Service and multiple Collectors.
+The Accounting and Billing Building Block collects, generates and stores resource use data relevant to billing. Based on the EODH implementation, it consists of several microservices connected by messaging - a central Accounting Service and multiple Collectors.
 
-The system comprises:
+The system includes:
 - **Central Accounting Service**: Manages product and price settings, serves accounting data to users
 - **Resource Collectors**: Microservices that collect resource use data
-- **Messaging System**: Asynchronous persistent messaging (eg Pulsar, Kafka)
+- **Messaging System**: Asynchronous persistent messaging (e.g., Pulsar, Kafka)
 - **Database**: Stores billing events, products and prices
 
-**Billing Events** record resource consumption by a particular workspace over a specific time period (typically 5 minutes, 1 hour or 1 day) for a particular product or resource. Each event has a UUID, and messages with duplicate UUIDs are ignored. Collectors generate UUIDs based on the time period, workspace and product combination to prevent duplication.
+**Billing Events** record resource consumption by a workspace over a time period (typically 5 minutes, 1 hour, or 1 day) for a product. Each event has a UUID and duplicate UUIDs are ignored. Collectors generate UUIDs from the time period, workspace and product to prevent duplication.
 
-**Resource Consumption Rate Samples** are point-in-time samples of the rate at which a workspace consumes a particular product. The Ingester generates Billing Events from these samples via linear interpolation to hourly boundaries - but only for storage use. All other products generate exact Billing Events directly through Collectors.
+**Resource Consumption Rate Samples** are point-in-time samples of the rate at which a workspace consumes a product. The Ingester generates Billing Events from these samples via linear interpolation to hourly boundaries - but only for storage. Other products generate exact Billing Events directly through Collectors.
 
-**Products** consist of an SKU, a name and the units in which consumption is measured. **Prices** specify the cost per unit of a particular product between particular dates.
+**Products** consist of an SKU, a name and units for measuring consumption. **Prices** specify the cost per unit of a product between dates.
 
 ## Central Accounting Service
 
@@ -20,7 +20,7 @@ This consists of two services sharing a database and codebase - the API service 
 
 ### API Service
 
-The API service exposes several endpoints with different authentication requirements:
+The API service exposes endpoints with different authentication requirements:
 - `/api/accounting/prices` and `/api/accounting/skus` - no authentication required
 - `/api/workspaces/{workspace}/accounting/` - requires workspace ownership or membership
 
