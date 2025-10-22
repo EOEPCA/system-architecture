@@ -23,6 +23,7 @@ nav:
       - Notification & Automation: reference-architecture/notification-automation-BB.md
     - Building Blocks (Federation):
       - Data Gateway: reference-architecture/data-gateway-BB.md
+      - Federated Data Proxy: reference-architecture/federated-data-proxy-BB.md
       - Federated Orchestrator: reference-architecture/federated-orchestrator-BB.md
       - Identity & Access Management: reference-architecture/iam-BB.md
     - Building Blocks (Applications):
