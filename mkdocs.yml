@@ -21,6 +21,7 @@ nav:
       - MLOps: reference-architecture/mlops-BB.md
       - Resource Health: reference-architecture/resource-health-BB.md
       - Notification & Automation: reference-architecture/notification-automation-BB.md
+      - User Support: reference-architecture/user-support-BB.md
       - Operations: reference-architecture/operations-BB.md
     - Building Blocks (Federation):
       - Data Gateway: reference-architecture/data-gateway-BB.md
