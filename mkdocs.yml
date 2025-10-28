@@ -23,6 +23,7 @@ nav:
       - Notification & Automation: reference-architecture/notification-automation-BB.md
       - User Support: reference-architecture/user-support-BB.md
       - Operations: reference-architecture/operations-BB.md
+      - Accounting & Billing: reference-architecture/accounting-billing-BB.md
     - Building Blocks (Federation):
       - Data Gateway: reference-architecture/data-gateway-BB.md
       - Federated Data Proxy: reference-architecture/federated-data-proxy-BB.md

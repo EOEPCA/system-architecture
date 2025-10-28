@@ -4,17 +4,22 @@
 
 The Accounting and Billing Building Block collects resource usage data and prepares it for billing. Based on the EODH implementation, it's built around a central Accounting Service and multiple Collectors, all connected via messaging.
 
-Main components:
+## Main components
+
 - **Central Accounting Service** - handles product/price config and serves accounting data
 - **Resource Collectors** - microservices that collect usage data from different sources
 - **Messaging System** - async persistent messaging (Pulsar, Kafka, etc.)
 - **Database** - stores billing events, products and prices
 
-**Billing Events**: capture how much of a product a workspace consumed during a time window (usually 5 minutes/1 hour/1 day). Each event gets a UUID and duplicates are ignored. Collectors generate these UUIDs from the time period + workspace + product.
+## Terminology
 
-**Resource Consumption Rate Samples**: are point-in-time snapshots of consumption rate. The Ingester converts these into Billing Events using linear interpolation to hourly boundaries - but this only happens for storage metrics. Everything else goes straight to exact Billing Events via Collectors.
+**Billing Events** capture how much of a product a workspace consumed during a time window (usually 5 minutes/1 hour/1 day). Each event gets a UUID and duplicates are ignored. Collectors generate these UUIDs from the time period + workspace + product.
 
-**Products**: have an SKU, name and units. **Prices** define cost per unit for a date range.
+**Resource Consumption Rate Samples** are point-in-time snapshots of consumption rate. The Ingester converts these into Billing Events using linear interpolation to hourly boundaries - but this only happens for storage metrics. Everything else goes straight to exact Billing Events via Collectors.
+
+**Products** have an SKU, name and units.
+
+**Prices** define cost per unit for a date range.
 
 ## Central Accounting Service
 
@@ -48,8 +53,10 @@ Tracks CPU and memory usage for workspace namespaces. After a restart, it can ba
 ### Storage Collectors
 We have multiple collectors for different storage types:
 
-**Object Storage Collector** - samples storage usage and parses access logs for API calls and bandwidth  
-**Block Storage Collector** - monitors persistent volumes (implementation depends on your setup)
+* **Object Storage Collector**<br>
+  Samples storage usage and parses access logs for API calls and bandwidth  
+* **Block Storage Collector**<br>
+  Monitors persistent volumes (implementation depends on your setup)
 
 ### Data Transfer Collector
 Parses logs to generate bandwidth events for HTTPS downloads from workspace domains.
