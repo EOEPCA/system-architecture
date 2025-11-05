@@ -1,4 +1,3 @@
-mkdocs==1.6.1
 mkdocs-material==9.6.22
 mkdocs-autorefs==1.4.3
 mkdocs-publisher==1.4.8
